@@ -19,6 +19,7 @@ class Admin
         if (!Auth::guard('admin')->check()) {
            return redirect()->route('admin.login')->with('error','You do not have permission to access this page');
         } 
+        
        
         return $next($request);
     }
