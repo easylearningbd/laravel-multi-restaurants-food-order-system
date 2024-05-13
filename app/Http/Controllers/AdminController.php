@@ -100,4 +100,11 @@ class AdminController extends Controller
      }
      // End Method 
 
+     public function AdminProfile(){
+        $id = Auth::guard('admin')->id();
+        $profileData = Admin::find($id);
+        return view('admin.admin_profile',compact('profileData'));
+     }
+      // End Method 
+
 }

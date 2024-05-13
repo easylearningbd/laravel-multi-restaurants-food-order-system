@@ -23,6 +23,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 });
 
 
