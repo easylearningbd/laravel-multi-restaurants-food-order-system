@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,3 +40,8 @@ Route::post('/admin/password_submit', [AdminController::class, 'AdminPasswordSub
 
 Route::get('/admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
 Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminResetPasswordSubmit'])->name('admin.reset_password_submit');
+
+/// ALL ROUTE FOR CLIENT 
+
+Route::get('/client/login', [ClientController::class, 'ClientLogin'])->name('client.login');
+Route::get('/client/register', [ClientController::class, 'ClientRegister'])->name('client.register');
