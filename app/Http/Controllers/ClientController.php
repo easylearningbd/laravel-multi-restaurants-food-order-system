@@ -68,5 +68,11 @@ class ClientController extends Controller
     }
     // End Method 
 
+    public function ClientLogout(){
+        Auth::guard('client')->logout();
+        return redirect()->route('client.login')->with('success','Logout Success');
+    }
+    // End Method 
+
 
 }
