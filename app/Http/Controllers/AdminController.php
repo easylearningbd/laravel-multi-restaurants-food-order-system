@@ -135,7 +135,7 @@ class AdminController extends Controller
             'message' => 'Profile Updated Successfully',
             'alert-type' => 'success'
         );
-        
+
         return redirect()->back()->with($notification);
     }
      // End Method 
@@ -146,6 +146,13 @@ class AdminController extends Controller
         }
      }
      // End Private Method 
+
+     public function AdminChangePassword(){
+        $id = Auth::guard('admin')->id();
+        $profileData = Admin::find($id);
+        return view('admin.admin_change_Password',compact('profileData'));
+     }
+      // End Method 
 
 
 
