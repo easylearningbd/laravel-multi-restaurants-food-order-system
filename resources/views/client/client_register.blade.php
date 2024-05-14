@@ -57,7 +57,7 @@
     <li>{{ Session::get('success') }}</li>
 @endif     
 
-<form class="mt-4 pt-2" action="{{ route('admin.login_submit') }}"  method="post">
+<form class="mt-4 pt-2" action="{{ route('client.register.submit') }}"  method="post">
     @csrf
 
     <div class="mb-3">
@@ -103,7 +103,7 @@
         
     </div>
     <div class="mb-3">
-        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
+        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
     </div>
 </form>
 
