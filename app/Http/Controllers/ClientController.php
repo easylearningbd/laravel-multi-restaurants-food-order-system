@@ -134,7 +134,7 @@ class ClientController extends Controller
             'old_password' => 'required',
             'new_password' => 'required|confirmed'
         ]);
-
+ 
         if (!Hash::check($request->old_password,$client->password)) {
             $notification = array(
                 'message' => 'Old Password Does not Match!',

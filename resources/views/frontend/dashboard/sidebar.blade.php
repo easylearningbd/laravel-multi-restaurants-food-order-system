@@ -1,14 +1,18 @@
+@php
+    $id = Auth::user()->id;
+    $profileData = App\Models\User::find($id);
+@endphp
 <div class="col-md-3">
     <div class="osahan-account-page-left shadow-sm rounded bg-white h-100">
        <div class="border-bottom p-4">
           <div class="osahan-user text-center">
              <div class="osahan-user-media">
-                <img class="mb-3 rounded-pill shadow-sm mt-1" src="img/user/4.png" alt="gurdeep singh osahan">
+                <img class="mb-3 rounded-pill shadow-sm mt-1" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="gurdeep singh osahan">
                 <div class="osahan-user-media-body">
-                   <h6 class="mb-2">Gurdeep Singh</h6>
-                   <p class="mb-1">+91 85680-79956</p>
-                   <p>iamosahan@gmail.com</p>
-                   <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                   <h6 class="mb-2">{{$profileData->name}}</h6>
+                   <p class="mb-1">{{$profileData->phone}}</p>
+                   <p>{{$profileData->email}}</p>
+           
                 </div>
              </div>
           </div>
