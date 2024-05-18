@@ -1,52 +1,100 @@
-<x-guest-layout>
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Askbootstrap">
+      <meta name="author" content="Askbootstrap">
+      <title>User Register - Online Food Ordering </title>
+      <!-- Favicon Icon -->
+      <link rel="icon" type="image/png" href="{{ asset('frontend/img/favicon.png') }}">
+      <!-- Bootstrap core CSS-->
+      <link href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+      <!-- Font Awesome-->
+      <link href="{{ asset('frontend/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet">
+      <!-- Font Awesome-->
+      <link href="{{ asset('frontend/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+      <!-- Select2 CSS-->
+      <link href="{{ asset('frontend/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
+      <!-- Custom styles for this template-->
+      <link href="{{ asset('frontend/css/osahan.css') }}" rel="stylesheet">
+   </head>
+   <body class="bg-white">
+      <div class="container-fluid">
+         <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+               <div class="login d-flex align-items-center py-5">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+                           <h3 class="login-heading mb-4">Welcome back!</h3>
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <li>{{$error }}</li>
+        @endforeach
+    @endif
+    
+    @if (Session::has('error'))
+        <li>{{ Session::get('error') }}</li>
+    @endif
+    @if (Session::has('success'))
+        <li>{{ Session::get('success') }}</li>
+    @endif            
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="form-label-group">
+            <input type="text" name="name" id="ptext" class="form-control" placeholder="Email address">
+            <label for="ptext">Name </label>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-label-group">
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
+            <label for="inputEmail">Email </label>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            <div class="form-label-group">
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Email address">
+                <label for="inputPassword">Password </label>
+            </div>
+            <div class="form-label-group">
+                <input type="password" name="password_confirmation" id="inputPassword1" class="form-control" placeholder="Password">
+                <label for="inputPassword1">Confirm Password</label>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+            </div>
+            <button type="submit" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Sing Up </button>
+            <div class="text-center pt-3">
+                Don’t have an account? <a class="font-weight-bold" href="{{ route('register')}}">Sign Up</a>
+            </div>
+        </form>
+                           <hr class="my-4">
+                           <p class="text-center">LOGIN WITH</p>
+                           <div class="row">
+                              <div class="col pr-2">
+                                 <button class="btn pl-1 pr-1 btn-lg btn-google font-weight-normal text-white btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Google</button>
+                              </div>
+                              <div class="col pl-2">
+                                 <button class="btn pl-1 pr-1 btn-lg btn-facebook font-weight-normal text-white btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Facebook</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="{{ asset('frontend/vendor/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <!-- Bootstrap core JavaScript-->
+      <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+      <!-- Select2 JavaScript-->
+      <script src="{{ asset('frontend/vendor/select2/js/select2.min.js') }}"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="{{ asset('frontend/js/custom.js') }}"></script>
+   </body>
+</html>
