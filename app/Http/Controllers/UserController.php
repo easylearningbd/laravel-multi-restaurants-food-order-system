@@ -53,6 +53,11 @@ class UserController extends Controller
      }
      // End Private Method 
 
+     public function UserLogout(){
+        Auth::guard('web')->logout();
+        return redirect()->route('login')->with('success','Lougout Successfully');
+     }
+    // End Method 
 
 
 }
