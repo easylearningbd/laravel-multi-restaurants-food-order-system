@@ -28,7 +28,7 @@
                 </li>
 
                 <li>
-                    <a href="apps-chat.html">
+                    <a href="{{ route('add.menu') }}">
                         <span data-key="t-chat">Add Menu</span>
                     </a>
                 </li> 
