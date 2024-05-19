@@ -144,4 +144,36 @@ class CategoryController extends Controller
     }
      // End Method 
 
+     public function UpdateCity(Request $request){
+        $cat_id = $request->cat_id;
+
+        City::find($cat_id)->update([
+               'city_name' => $request->city_name,
+               'city_slug' =>  strtolower(str_replace(' ','-',$request->city_name)), 
+           ]);  
+       
+
+       $notification = array(
+           'message' => 'City Updated Successfully',
+           'alert-type' => 'success'
+       );
+
+       return redirect()->back()->with($notification);
+                  
+   }
+   // End Method 
+
+   public function DeleteCity($id){
+      City::find($id)->delete();
+
+      $notification = array(
+        'message' => 'City Deleted Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+
+   }
+    // End Method 
+
 } 
