@@ -47,15 +47,10 @@
                         <span data-key="t-calendar">All City</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="{{ route('add.city') }}">
-                        <span data-key="t-chat">Add City</span>
-                    </a>
-                </li> 
-               
+ 
             </ul>
         </li>
+        
 
         <li>
             <a href="javascript: void(0);" class="has-arrow">

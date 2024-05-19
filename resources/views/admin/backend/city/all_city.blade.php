@@ -12,7 +12,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <a href="{{ route('add.city') }}" class="btn btn-primary waves-effect waves-light">Add City</a>
+                            <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal">Add City</button>
                         </ol>
                     </div>
 
@@ -32,7 +32,7 @@
             <tr>
                 <th>Sl</th>
                 <th>City Name</th>
-                <th>City Slug </th>
+                <th>City Slug</th>
                 <th>Action </th> 
             </tr>
             </thead>
@@ -63,5 +63,40 @@
 </div>
 
 
+    <!-- sample modal content -->
+    <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-scroll="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Add City</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+  <form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+           @csrf
+                        
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+            <div class="form-group mb-3">
+                <label for="example-text-input" class="form-label">City Name</label>
+                <input class="form-control" type="text" name="city_name"   >
+            </div>
+    
+        </div>
+    </div>
+    
+</div>
+                   
+              
+                </div>
+                <div class="modal-footer"> 
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                </div>
+            </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 @endsection

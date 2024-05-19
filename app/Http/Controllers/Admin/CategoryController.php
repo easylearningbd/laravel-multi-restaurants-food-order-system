@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use App\Models\Category;
 use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Drivers\Gd\Driver; 
 use App\Models\City;
 
 class CategoryController extends Controller
@@ -112,7 +112,7 @@ class CategoryController extends Controller
     }
     // End Method 
 
-    //// All City Methods in here 
+    //// All City Method in here 
 
     public function AllCity(){
         $city = City::latest()->get();
@@ -120,28 +120,6 @@ class CategoryController extends Controller
     } 
     // End Method 
 
-    public function AddCity(){
-        
-        return view('admin.backend.city.add_city');
-    } 
-    // End Method
-    
-    public function StoreCity(Request $request){
  
-        City::create([
-                'city_name' => $request->city_name,
-                'city_slug' => strtolower(str_replace(' ','-',$request->city_name)), 
-            ]);  
- 
-        $notification = array(
-            'message' => 'City Inserted Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('all.city')->with($notification);
-                   
-    }
-    // End Method 
-
 
 } 
