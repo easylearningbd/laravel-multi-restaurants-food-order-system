@@ -38,6 +38,27 @@
 
         <li>
             <a href="javascript: void(0);" class="has-arrow">
+                <i data-feather="grid"></i>
+                <span data-key="t-apps">Product</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li>
+                    <a href="{{ route('all.product') }}">
+                        <span data-key="t-calendar">All Product</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('add.menu') }}">
+                        <span data-key="t-chat">Add Product</span>
+                    </a>
+                </li> 
+               
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="users"></i>
                 <span data-key="t-authentication">Authentication</span>
             </a>
