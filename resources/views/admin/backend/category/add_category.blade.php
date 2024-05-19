@@ -28,7 +28,7 @@
  <div class="card">
 <div class="card-body p-4">
 
-<form id="myForm" action="{{ route('admin.profile.store') }}" method="post" enctype="multipart/form-data">
+<form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     
 <div class="row">
