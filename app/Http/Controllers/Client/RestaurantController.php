@@ -13,6 +13,7 @@ use App\Models\Product;
 use App\Models\City;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
+use App\Models\Gllery;
 
 class RestaurantController extends Controller
 {
@@ -262,6 +263,22 @@ class RestaurantController extends Controller
         return redirect()->back()->with($notification);
 
     }
+    // End Method 
+
+    public function ChangeStatus(Request $request){
+        $product = Product::find($request->product_id);
+        $product->status = $request->status;
+        $product->save();
+        return response()->json(['success' => 'Status Change Successfully']);
+    }
+     // End Method 
+
+     /////////// All Gallery Method Start 
+
+     public function AllGallery(){
+        $gallery = Gllery::latest()->get();
+        return view('client.backend.gallery.all_gallery', compact('gallery'));
+    } 
     // End Method 
 
 
