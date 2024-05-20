@@ -115,10 +115,10 @@ Route::middleware('client')->group(function () {
         Route::get('/all/gallery', 'AllGallery')->name('all.gallery');
         Route::get('/add/gallery', 'AddGallery')->name('add.gallery');
         Route::post('/store/gallery', 'StoreGallery')->name('gallery.store');
-        Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
-        Route::post('/update/product', 'UpdateProduct')->name('product.update');
-        Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
-        Route::get('/changeStatus', 'ChangeStatus');
+        Route::get('/edit/gallery/{id}', 'EditGallery')->name('edit.gallery');
+        Route::post('/update/gallery', 'UpdateGallery')->name('gallery.update');
+        Route::get('/delete/gallery/{id}', 'DeleteGallery')->name('delete.gallery');
+        
     });
     
 });
