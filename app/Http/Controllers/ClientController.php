@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash; 
 use App\Models\Client;
+use App\Models\City;
 
 class ClientController extends Controller
 {
@@ -75,12 +76,13 @@ class ClientController extends Controller
     // End Method 
 
     public function ClientProfile(){
+        $city = City::latest()->get();
         $id = Auth::guard('client')->id();
         $profileData = Client::find($id);
-        return view('client.client_profile',compact('profileData'));
+        return view('client.client_profile',compact('profileData','city'));
      }
       // End Method 
-
+ 
       public function ClientProfileStore(Request $request){
         $id = Auth::guard('client')->id();
         $data = Client::find($id);

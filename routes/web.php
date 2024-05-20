@@ -58,7 +58,7 @@ Route::middleware('client')->group(function () {
     Route::get('/client/change/password', [ClientController::class, 'ClientChangePassword'])->name('client.change.password');
     Route::post('/client/password/update', [ClientController::class, 'ClientPasswordUpdate'])->name('client.password.update');
     
-});
+}); 
 
 Route::get('/client/login', [ClientController::class, 'ClientLogin'])->name('client.login');
 Route::get('/client/register', [ClientController::class, 'ClientRegister'])->name('client.register');
