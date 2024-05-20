@@ -130,6 +130,11 @@ class RestaurantController extends Controller
     } 
     // End Method 
 
+    public function StoreProduct(){
+
+    }
+     // End Method 
+
 
 
 }
