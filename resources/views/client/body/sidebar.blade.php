@@ -92,7 +92,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('add.gallery') }}">
+                    <a href="{{ route('add.coupon') }}">
                         <span data-key="t-chat">Add Coupon</span>
                     </a>
                 </li> 

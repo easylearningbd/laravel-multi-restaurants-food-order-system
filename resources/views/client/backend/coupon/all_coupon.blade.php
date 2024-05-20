@@ -12,7 +12,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <a href="{{ route('add.menu') }}" class="btn btn-primary waves-effect waves-light">Add Coupon</a>
+                            <a href="{{ route('add.coupon') }}" class="btn btn-primary waves-effect waves-light">Add Coupon</a>
                         </ol>
                     </div>
 
@@ -46,10 +46,16 @@
             <tr>
                 <td>{{ $key+1 }}</td>
                 <td>{{ $item->coupon_name }}</td>
-                <td>{{ $item->coupon_desc }}</td>
+                <td>{{ Str::limit($item->coupon_desc, 20)  }}</td>
                 <td>{{ $item->discount }}</td>
-                <td>{{ $item->validity }}</td>
-                <td>{{ $item->status }}</td>
+                <td>{{ Carbon\Carbon::parse($item->validity)->format('D,d F Y')  }}</td>
+                <td>
+                    @if ($item->validity >= Carbon\Carbon::now()->format('Y-m-d'))
+                        <span class="badge rounded-pill bg-success">Valid</span>
+                        @else
+                        <span class="badge rounded-pill bg-danger">Invalid</span>
+                    @endif
+                    </td>
 
                 <td><a href="{{ route('edit.menu',$item->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
                 <a href="{{ route('delete.menu',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
