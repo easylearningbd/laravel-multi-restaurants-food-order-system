@@ -12,7 +12,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <a href="{{ route('add.menu') }}" class="btn btn-primary waves-effect waves-light">Add Gallery</a>
+                            <a href="{{ route('add.gallery') }}" class="btn btn-primary waves-effect waves-light">Add Gallery</a>
                         </ol>
                     </div>
 
