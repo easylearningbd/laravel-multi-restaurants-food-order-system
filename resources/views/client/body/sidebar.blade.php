@@ -1,3 +1,8 @@
+@php
+    $id = Auth::guard('client')->id();
+    $client = App\Models\Client::find($id);
+    $status = $client->status;
+@endphp
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -9,12 +14,13 @@
         <li class="menu-title" data-key="t-menu">Menu</li>
 
         <li>
-            <a href="index.html">
+            <a href="{{ route('client.dashboard') }}">
                 <i data-feather="home"></i>
                 <span data-key="t-dashboard">Dashboard</span>
             </a>
         </li>
-
+        @if ($status === '1') 
+        
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="grid"></i>
@@ -100,45 +106,11 @@
             </ul>
         </li>
 
-        <li>
-            <a href="javascript: void(0);" class="has-arrow">
-                <i data-feather="users"></i>
-                <span data-key="t-authentication">Authentication</span>
-            </a>
-            <ul class="sub-menu" aria-expanded="false">
-                <li><a href="auth-login.html" data-key="t-login">Login</a></li>
-                <li><a href="auth-register.html" data-key="t-register">Register</a></li>
-                
-            </ul>
-        </li>
+        @else 
 
-         
-        <li class="menu-title mt-2" data-key="t-components">Elements</li>
+        @endif
 
-        <li>
-            <a href="javascript: void(0);" class="has-arrow">
-                <i data-feather="briefcase"></i>
-                <span data-key="t-components">Components</span>
-            </a>
-            <ul class="sub-menu" aria-expanded="false">
-                <li><a href="ui-alerts.html" data-key="t-alerts">Alerts</a></li>
-                <li><a href="ui-buttons.html" data-key="t-buttons">Buttons</a></li>
-                
-            </ul>
-        </li>
-
-        <li>
-            <a href="javascript: void(0);" class="has-arrow">
-                <i data-feather="gift"></i>
-                <span data-key="t-ui-elements">Extended</span>
-            </a>
-            <ul class="sub-menu" aria-expanded="false">
-                <li><a href="extended-lightbox.html" data-key="t-lightbox">Lightbox</a></li>
-                <li><a href="extended-rangeslider.html" data-key="t-range-slider">Range Slider</a></li>
-                
-            </ul>
-        </li>
-  
+          
 
     </ul>
 
