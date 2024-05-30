@@ -92,8 +92,8 @@ Route::middleware('admin')->group(function () {
     Route::controller(ManageController::class)->group(function(){
         Route::get('/admin/all/product', 'AdminAllProduct')->name('admin.all.product');
         Route::get('/admin/add/product', 'AdminAddProduct')->name('admin.add.product');
-        Route::post('/store/product', 'StoreProduct')->name('product.store');
-        Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+        Route::post('/admin/store/product', 'AdminStoreProduct')->name('admin.product.store');
+        Route::get('/admin/edit/product/{id}', 'AdminEditProduct')->name('admin.edit.product');
         Route::post('/update/product', 'UpdateProduct')->name('product.update');
         Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
        

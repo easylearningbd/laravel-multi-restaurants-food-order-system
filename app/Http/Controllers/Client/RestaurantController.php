@@ -138,7 +138,7 @@ class RestaurantController extends Controller
     // End Method 
 
     public function StoreProduct(Request $request){
-
+ 
         $pcode = IdGenerator::generate(['table' => 'products','field' => 'code', 'length' => 5, 'prefix' => 'PC']);  
 
         if ($request->file('image')) {
