@@ -197,6 +197,32 @@ class ManageController extends Controller
   }
 // End Method 
 
+public function BannerStore(Request $request){
+
+    if ($request->file('image')) {
+        $image = $request->file('image');
+        $manager = new ImageManager(new Driver());
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        $img = $manager->read($image);
+        $img->resize(400,400)->save(public_path('upload/banner/'.$name_gen));
+        $save_url = 'upload/banner/'.$name_gen;
+
+        Banner::create([
+            'url' => $request->url,
+            'image' => $save_url, 
+        ]); 
+    } 
+
+    $notification = array(
+        'message' => 'Banner Inserted Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+               
+}
+// End Method 
+
 
 
 } 

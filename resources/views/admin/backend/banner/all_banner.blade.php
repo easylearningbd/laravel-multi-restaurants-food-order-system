@@ -1,5 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
     <div class="container-fluid">
@@ -71,20 +72,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Add City</h5>
+                    <h5 class="modal-title" id="myModalLabel">Add Banner</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
-  <form id="myForm" action="{{ route('city.store') }}" method="post" enctype="multipart/form-data">
+  <form  action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
            @csrf
                         
 <div class="row">
     <div class="col-lg-12">
         <div>
             <div class="form-group mb-3">
-                <label for="example-text-input" class="form-label">City Name</label>
-                <input class="form-control" type="text" name="city_name"   >
+                <label for="example-text-input" class="form-label">Banner Url</label>
+                <input class="form-control" type="text" name="url"   >
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="example-text-input" class="form-label">Banner Image</label>
+                <input class="form-control" type="file" name="image" id="image"   >
+            </div>
+
+            <div class="form-group mb-3"> 
+                <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="" class="rounded-circle p-1 bg-primary" width="110">
             </div>
     
         </div>
@@ -161,7 +171,18 @@
     </script>
 
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        })
+    })
 
+</script>
 
 
 
