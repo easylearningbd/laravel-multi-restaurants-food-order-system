@@ -175,6 +175,19 @@ class ManageController extends Controller
     }
  // End Method 
 
+ public function ClientChangeStatus(Request $request){
+    $client = Client::find($request->client_id);
+    $client->status = $request->status;
+    $client->save();
+    return response()->json(['success' => 'Status Change Successfully']);
+}
+ // End Method 
+
+ public function ApproveRestaurant(){
+    $client = Client::where('status',1)->get();
+    return view('admin.backend.restaurant.approve_restaurant',compact('client')); 
+}
+// End Method 
 
 
 
