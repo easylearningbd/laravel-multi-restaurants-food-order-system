@@ -15,6 +15,7 @@ use App\Models\City;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
 use App\Models\Gllery;
+use App\Models\Banner;
 
 class ManageController extends Controller
 {
@@ -188,7 +189,13 @@ class ManageController extends Controller
     return view('admin.backend.restaurant.approve_restaurant',compact('client')); 
 }
 // End Method 
+ /// All Banner Method in here 
 
+  public function AllBanner(){
+    $banner = Banner::latest()->get();
+    return view('admin.backend.banner.all_banner',compact('banner'));
+  }
+// End Method 
 
 
 
