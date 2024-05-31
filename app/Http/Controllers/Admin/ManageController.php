@@ -223,6 +223,13 @@ public function BannerStore(Request $request){
 }
 // End Method 
 
-
+    public function EditBanner($id){
+        $banner = Banner::find($id);
+        if ($banner) {
+            $banner->image = asset($banner->image);
+        }
+        return response()->json($banner);
+    }
+    // End Method 
 
 } 
