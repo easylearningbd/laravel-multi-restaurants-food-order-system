@@ -69,6 +69,7 @@
                       <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4 explore-outlets"> 
                          <h6 class="mb-3">Most Popular  <span class="badge badge-success"><i class="icofont-tags"></i> 15% Off All Items </span></h6>
                          <div class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3">
+                            
                             <div class="item">
                                <div class="mall-category-item">
                                   <a href="#">
@@ -78,295 +79,65 @@
                                   </a>
                                </div>
                             </div>
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="img/list/2.png">
-                                     <h6>Sandwiches</h6>
-                                     <small>8 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="img/list/3.png">
-                                     <h6>Soups</h6>
-                                     <small>2 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="img/list/4.png">
-                                     <h6>Pizzas</h6>
-                                     <small>56 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="img/list/5.png">
-                                     <h6>Pastas</h6>
-                                     <small>10 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="img/list/6.png">
-                                     <h6>Chinese</h6>
-                                     <small>25 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
+  
+                            
                          </div>
                       </div>
-                      <div class="row">
-                         <h5 class="mb-4 mt-3 col-md-12">Best Sellers</h5>
-                         <div class="col-md-4 col-sm-6 mb-4">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                               <div class="list-card-image">
-                                  <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                                  <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                  <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                  <a href="#">
-                                  <img src="img/list/7.png" class="img-fluid item-img">
-                                  </a>
-                               </div>
-                               <div class="p-3 position-relative">
-                                  <div class="list-card-body">
-                                     <h6 class="mb-1"><a href="#" class="text-black">Bite Me Sandwiches</a></h6>
-                                     <p class="text-gray mb-2">North Indian • Indian</p>
-                                     <p class="text-gray time mb-0"><a class="btn btn-link btn-sm text-black" href="#">$550 <span class="badge badge-success">NEW</span></a>  <span class="float-right"> 
-                                        <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
-                                        </span>
-                                     </p>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                         <div class="col-md-4 col-sm-6 mb-4">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                               <div class="list-card-image">
-                                  <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                                  <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                  <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                  <a href="#">
-                                  <img src="img/list/8.png" class="img-fluid item-img">
-                                  </a>
-                               </div>
-                               <div class="p-3 position-relative">
-                                  <div class="list-card-body">
-                                     <h6 class="mb-1"><a href="#" class="text-black">Famous Dave's Bar-B
-                                        </a>
-                                     </h6>
-                                     <p class="text-gray mb-2">Hamburgers • Indian</p>
-                                     <p class="text-gray time mb-0"><a class="btn btn-link btn-sm text-black" href="#">$250 <span class="badge badge-primary">NEW</span></a> <span class="float-right"> 
-                                        <span class="count-number">
-                                        <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                        <input class="count-number-input" type="text" value="1" readonly="">
-                                        <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                        </span>
-                                        </span>
-                                     </p>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                         <div class="col-md-4 col-sm-6 mb-4">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                               <div class="list-card-image">
-                                  <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                                  <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                  <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                  <a href="#">
-                                  <img src="img/list/9.png" class="img-fluid item-img">
-                                  </a>
-                               </div>
-                               <div class="p-3 position-relative">
-                                  <div class="list-card-body">
-                                     <h6 class="mb-1"><a href="#" class="text-black">Bite Me Sandwiches</a></h6>
-                                     <p class="text-gray mb-2">North Indian • Indian</p>
-                                     <p class="text-gray time mb-0"><a class="btn btn-link btn-sm text-black" href="#">$250 <span class="badge badge-info">NEW</span></a> <span class="float-right"> 
-                                        <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
-                                        </span>
-                                     </p>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="row">
-                         <h5 class="mb-4 mt-3 col-md-12">Quick Bites <small class="h6 text-black-50">3 ITEMS</small></h5>
-                         <div class="col-md-12">
-                            <div class="bg-white rounded border shadow-sm mb-4">
-                               <div class="gold-members p-3 border-bottom">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub</h6>
-                                        <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3 border-bottom">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BESTSELLER</span></h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-success food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Cheese Spinach corn Roll <span class="badge badge-success">Pure Veg</span></h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="row">
-                         <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3 ITEMS</small></h5>
-                         <div class="col-md-12">
-                            <div class="bg-white rounded border shadow-sm mb-4">
-                               <div class="menu-list p-3 border-bottom">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <img class="mr-3 rounded-pill" src="img/5.jpg" alt="Generic placeholder image">
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Veg Spring Roll</h6>
-                                        <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="menu-list p-3 border-bottom">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <img class="mr-3 rounded-pill" src="img/2.jpg" alt="Generic placeholder image">
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Stuffed Mushroom <span class="badge badge-danger">BESTSELLER</span></h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="menu-list p-3">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <img class="mr-3 rounded-pill" src="img/3.jpg" alt="Generic placeholder image">
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Honey Chilli Potato
-                                           <span class="badge badge-success">Pure Veg</span>
-                                        </h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="row">
-                         <h5 class="mb-4 mt-3 col-md-12">Soups <small class="h6 text-black-50">8 ITEMS</small></h5>
-                         <div class="col-md-12">
-                            <div class="bg-white rounded border shadow-sm">
-                               <div class="gold-members p-3 border-bottom">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Tomato Dhania Shorba</h6>
-                                        <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3 border-bottom">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Veg Manchow Soup</h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3 border-bottom">
-                                  <span class="count-number float-right">
-                                  <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                                  <input class="count-number-input" type="text" value="1" readonly="">
-                                  <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                                  </span>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-success food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Lemon Coriander Soup</h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3 border-bottom">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Tomato Dhania Shorba</h6>
-                                        <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3 border-bottom">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Veg Manchow Soup</h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="gold-members p-3">
-                                  <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
-                                  <div class="media">
-                                     <div class="mr-3"><i class="icofont-ui-press text-success food-item"></i></div>
-                                     <div class="media-body">
-                                        <h6 class="mb-1">Lemon Coriander Soup</h6>
-                                        <p class="text-gray mb-0">$600</p>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
+    <div class="row">
+        <h5 class="mb-4 mt-3 col-md-12">Best Sellers</h5>
+        
+        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+            <div class="list-card-image">
+                <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
+                <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
+                <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
+                <a href="#">
+                <img src="img/list/7.png" class="img-fluid item-img">
+                </a>
+            </div>
+            <div class="p-3 position-relative">
+                <div class="list-card-body">
+                    <h6 class="mb-1"><a href="#" class="text-black">Bite Me Sandwiches</a></h6>
+                    <p class="text-gray mb-2">North Indian • Indian</p>
+                    <p class="text-gray time mb-0"><a class="btn btn-link btn-sm text-black" href="#">$550 <span class="badge badge-success">NEW</span></a>  <span class="float-right"> 
+                    <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
+                    </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+ 
+       
+    </div>
+                     
+    
+
+    <div class="row">
+        <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3 ITEMS</small></h5>
+        <div class="col-md-12">
+        <div class="bg-white rounded border shadow-sm mb-4">
+            <div class="menu-list p-3 border-bottom">
+                
+                <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
+                
+                <div class="media">
+                    <img class="mr-3 rounded-pill" src="{{ asset('frontend/img/5.jpg') }}" alt="Generic placeholder image">
+                    <div class="media-body">
+                    <h6 class="mb-1">Veg Spring Roll</h6>
+                    <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
+                    </div>
+                </div>
+            </div>
+             
+           
+        </div>
+        </div>
+    </div>
+
+                       
                    </div>
                    <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
                       <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
@@ -570,47 +341,13 @@
                                   </div>
                                   <div class="reviews-members-footer">
                                      <a class="total-like" href="#"><i class="icofont-thumbs-up"></i> 856M</a> <a class="total-like" href="#"><i class="icofont-thumbs-down"></i> 158K</a> 
-                                     <span class="total-like-user-main ml-2" dir="rtl">
-                                     <a data-toggle="tooltip" data-placement="top" title="Gurdeep Osahan" href="#"><img alt="Generic placeholder image" src="img/user/5.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Gurdeep Singh" href="#"><img alt="Generic placeholder image" src="img/user/2.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Askbootstrap" href="#"><img alt="Generic placeholder image" src="img/user/3.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Osahan" href="#"><img alt="Generic placeholder image" src="img/user/4.png" class="total-like-user rounded-pill"></a>
-                                     </span>
+                                     
                                   </div>
                                </div>
                             </div>
                          </div>
                          <hr>
-                         <div class="reviews-members pt-4 pb-4">
-                            <div class="media">
-                               <a href="#"><img alt="Generic placeholder image" src="img/user/6.png" class="mr-3 rounded-pill"></a>
-                               <div class="media-body">
-                                  <div class="reviews-members-header">
-                                     <span class="star-rating float-right">
-                                     <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                     <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                     <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                     <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                     <a href="#"><i class="icofont-ui-rating"></i></a>
-                                     </span>
-                                     <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a></h6>
-                                     <p class="text-gray">Tue, 20 Mar 2020</p>
-                                  </div>
-                                  <div class="reviews-members-body">
-                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                                  </div>
-                                  <div class="reviews-members-footer">
-                                     <a class="total-like" href="#"><i class="icofont-thumbs-up"></i> 88K</a> <a class="total-like" href="#"><i class="icofont-thumbs-down"></i> 1K</a> 
-                                     <span class="total-like-user-main ml-2" dir="rtl">
-                                     <a data-toggle="tooltip" data-placement="top" title="Gurdeep Osahan" href="#"><img alt="Generic placeholder image" src="img/user/5.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Gurdeep Singh" href="#"><img alt="Generic placeholder image" src="img/user/2.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Askbootstrap" href="#"><img alt="Generic placeholder image" src="img/user/3.png" class="total-like-user rounded-pill"></a>
-                                     <a data-toggle="tooltip" data-placement="top" title="Osahan" href="#"><img alt="Generic placeholder image" src="img/user/4.png" class="total-like-user rounded-pill"></a>
-                                     </span>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
+                         
                          <hr>
                          <a class="text-center w-100 d-block mt-4 font-weight-bold" href="#">See All Reviews</a>
                       </div>
@@ -750,10 +487,10 @@
              </div>
              
              <div class="text-center pt-2 mb-4">
-             <img class="img-fluid" src="https://dummyimage.com/352x600/ccc/ffffff.png&text=Google+ads">
+             
              </div>
              <div class="text-center pt-2">
-             <img class="img-fluid" src="https://dummyimage.com/352x568/ccc/ffffff.png&text=Google+ads">
+             
              </div>
           </div>
        </div>
