@@ -151,28 +151,37 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
     </div>
                      
     
-
+    @foreach ($menus as $menu) 
     <div class="row">
-        <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3 ITEMS</small></h5>
+        <h5 class="mb-4 mt-3 col-md-12">{{ $menu->menu_name }} <small class="h6 text-black-50">{{ $menu->products->count() }} ITEMS</small></h5>
         <div class="col-md-12">
         <div class="bg-white rounded border shadow-sm mb-4">
-            <div class="menu-list p-3 border-bottom">
-                
+            
+            @foreach ($menu->products as $product) 
+            <div class="menu-list p-3 border-bottom"> 
                 <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
                 
                 <div class="media">
-                    <img class="mr-3 rounded-pill" src="{{ asset('frontend/img/5.jpg') }}" alt="Generic placeholder image">
+                    <img class="mr-3 rounded-pill" src="{{ asset($product->image) }}" alt="Generic placeholder image">
                     <div class="media-body">
-                    <h6 class="mb-1">Veg Spring Roll</h6>
-                    <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
+                    <h6 class="mb-1">{{$product->name}}</h6>
+                    @if ($product->size == NULL)
+                    <p class="text-gray mb-0"> </p>
+                    @else    
+                      <p class="text-gray mb-0"> ({{$product->size}} cm)</p>
+                    @endif
+                  
                     </div>
                 </div>
             </div>
-             
+            @endforeach
            
         </div>
         </div>
     </div>
+    @endforeach
+
+
 
                        
                    </div>
