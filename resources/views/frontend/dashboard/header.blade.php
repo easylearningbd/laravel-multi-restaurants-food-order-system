@@ -19,6 +19,11 @@
       <link href="{{ asset('frontend/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
       <!-- Custom styles for this template-->
       <link href="{{ asset('frontend/css/osahan.css') }}" rel="stylesheet">
+
+      <link rel="stylesheet" href="{{ asset('frontend/vendor/owl-carousel/owl.carousel.css') }}">
+      <link rel="stylesheet" href="{{ asset('frontend/vendor/owl-carousel/owl.theme.css') }}">
+
+
    </head>
    <body>
   
