@@ -21,7 +21,7 @@
       return $product->menu->menu_name;
      })->toArray();
      $menuNamesString = implode(' . ',$menuNames);
-
+     $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1')->first();
   @endphp
 
 
@@ -31,7 +31,11 @@
                <div class="list-card-image">
                   <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
                   <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
+                  @if ($coupons)
                   <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
+                  @else
+                  @endif
+                  
                   <a href="detail.html">
                   <img src="{{ asset('upload/client_images/' . $client->photo) }}" class="img-fluid item-img" style="width: 300px; height:200px;">
                   </a>
@@ -43,7 +47,12 @@
                      <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 20–25 min</span>  </p>
                   </div>
                   <div class="list-card-badge">
-                     <span class="badge badge-success">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
+                     @if ($coupons)
+                     <span class="badge badge-success">OFFER</span> <small>{{ $coupons->discount  }}% off | Use Coupon {{ $coupons->coupon_name  }}</small>
+                     @else 
+                     <span class="badge badge-success">OFFER</span> <small>Right Now There Have No Coupon</small>
+                     @endif
+                     
                   </div>
                </div>
             </div>
