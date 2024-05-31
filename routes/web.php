@@ -167,5 +167,6 @@ Route::middleware(['client','status'])->group(function () {
 
  Route::controller(HomeController::class)->group(function(){
     Route::get('/restaurant/details/{id}', 'RestaurantDetails')->name('res.details'); 
+    Route::post('/add-wish-list/{id}', 'AddWishList'); 
     
 });
