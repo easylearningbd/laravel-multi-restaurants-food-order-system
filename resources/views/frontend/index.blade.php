@@ -35,8 +35,8 @@
                   <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                   @else
                   @endif
-                  
-                  <a href="detail.html">
+
+                  <a href="{{ route('res.details',$client->id) }}">
                   <img src="{{ asset('upload/client_images/' . $client->photo) }}" class="img-fluid item-img" style="width: 300px; height:200px;">
                   </a>
                </div>
