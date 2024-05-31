@@ -26,15 +26,17 @@
             <a class="nav-link {{ Route::currentRouteName() === 'change.password' ? 'active' : '' }}"  href="{{ route('change.password') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Change Password </a>
          </li>
 
+         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'all.wishlist' ? 'active' : '' }}"  href="{{ route('all.wishlist') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Favourites </a>
+         </li>
+
           <li class="nav-item">
              <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Orders</a>
           </li>
           <li class="nav-item">
              <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false"><i class="icofont-sale-discount"></i> Offers</a>
           </li>
-          <li class="nav-item">
-             <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favourites</a>
-          </li>
+           
           <li class="nav-item">
              <a class="nav-link" id="payments-tab" data-toggle="tab" href="#payments" role="tab" aria-controls="payments" aria-selected="false"><i class="icofont-credit-card"></i> Payments</a>
           </li>

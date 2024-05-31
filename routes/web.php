@@ -28,8 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/change/password', [UserController::class, 'ChangePassword'])->name('change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+    
+    // Get Wishlist data for user 
+    Route::get('/all/wishlist', [HomeController::class, 'AllWishlist'])->name('all.wishlist');
    
 });
+
 
 require __DIR__.'/auth.php';
 
