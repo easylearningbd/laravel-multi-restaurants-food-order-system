@@ -9,6 +9,7 @@ use App\Models\Menu;
 use App\Models\Gllery;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth; 
+use App\Models\Wishlist;
 
 
 class HomeController extends Controller
