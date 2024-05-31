@@ -9,4 +9,10 @@ class Wishlist extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function client(){
+        return $this->belongsTo(Client::class, 'client_id','id');
+    }
+
+
 }
