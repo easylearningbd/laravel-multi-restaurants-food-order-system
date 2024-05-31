@@ -180,39 +180,28 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
         </div>
     </div>
     @endforeach
+      
+      </div>
 
-
-
-                       
-                   </div>
-                   <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
-                      <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
-                         <div class="restaurant-slider-main position-relative homepage-great-deals-carousel">
-                            <div class="owl-carousel owl-theme homepage-ad">
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/1.png">
-                               </div>
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/2.png">
-                               </div>
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/3.png">
-                               </div>
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/1.png">
-                               </div>
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/2.png">
-                               </div>
-                               <div class="item">
-                                  <img class="img-fluid" src="img/gallery/3.png">
-                               </div>
-                            </div>
-                            <div class="position-absolute restaurant-slider-pics bg-dark text-white">2 of 14 Photos</div>
-                            <div class="position-absolute restaurant-slider-view-all"><button type="button" class="btn btn-light bg-white">See all Photos</button></div>
-                         </div>
-                      </div>
-                   </div>
+    <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
+        <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
+            <div class="restaurant-slider-main position-relative homepage-great-deals-carousel">
+            <div class="owl-carousel owl-theme homepage-ad">
+                
+                @foreach ($gallerys as $index => $gallery) 
+                
+                <div class="item">
+                    <img class="img-fluid" src="{{ asset($gallery->gallery_img) }}">
+                    <div class="position-absolute restaurant-slider-pics bg-dark text-white">{{ $index + 1 }} of {{ $gallerys->count() }} Photos</div>
+                </div>
+                @endforeach
+                 
+            </div>
+           
+          
+            </div>
+        </div>
+    </div>
                    <div class="tab-pane fade" id="pills-restaurant-info" role="tabpanel" aria-labelledby="pills-restaurant-info-tab">
                       <div id="restaurant-info" class="bg-white rounded shadow-sm p-4 mb-4">
                          <div class="address-map float-right ml-5">
