@@ -51,5 +51,17 @@ class HomeController extends Controller
     }
      //End Method
 
+    public function RemoveWishlist($id){
+        Wishlist::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Wishlist Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+     //End Method
+
 
 } 
