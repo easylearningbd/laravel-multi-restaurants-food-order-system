@@ -14,6 +14,17 @@
    @endphp      
 
  @foreach ($clients as $client) 
+
+  @php
+     $products = App\Models\Product::where('client_id',$client->id)->limit(3)->get();
+     $menuNames = $products->map(function($product){
+      return $product->menu->menu_name;
+     })->toArray();
+     $menuNamesString = implode(' . ',$menuNames);
+
+  @endphp
+
+
    <div class="col-md-3">  
          <div class="item pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -28,8 +39,8 @@
                <div class="p-3 position-relative">
                   <div class="list-card-body">
                      <h6 class="mb-1"><a href="detail.html" class="text-black">{{ $client->name }}</a></h6>
-                     <p class="text-gray mb-3">North Indian • American • Pure veg</p>
-                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 20–25 min</span> <span class="float-right text-black-50"> $250 FOR TWO</span></p>
+                     <p class="text-gray mb-3"> {{ $menuNamesString  }}</p>
+                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 20–25 min</span>  </p>
                   </div>
                   <div class="list-card-badge">
                      <span class="badge badge-success">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
