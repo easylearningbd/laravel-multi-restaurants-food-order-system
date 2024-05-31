@@ -49,7 +49,7 @@
                    
                     <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myEdit" id="{{ $item->id }}" onclick="bannerEdit(this.id)" >Edit</button>
 
-                    <a href="{{ route('delete.city',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
+                    <a href="{{ route('delete.banner',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
                 </td> 
             </tr>
             @endforeach    
@@ -126,8 +126,10 @@
             </div>
             <div class="modal-body">
 
-                <form  action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
+   <form  action="{{ route('banner.update') }}" method="post" enctype="multipart/form-data">
+     @csrf
+
+     <input type="hidden" name="banner_id" id="banner_id">
                                  
          <div class="row">
              <div class="col-lg-12">
