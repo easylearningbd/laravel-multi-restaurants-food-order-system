@@ -1,19 +1,29 @@
 @include('frontend.dashboard.header')
 
+@php
+$products = App\Models\Product::where('client_id',$client->id)->limit(3)->get();
+$menuNames = $products->map(function($product){
+ return $product->menu->menu_name;
+})->toArray();
+$menuNamesString = implode(' . ',$menuNames);
+
+$coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1')->first();
+@endphp
+
 <section class="restaurant-detailed-banner">
     <div class="text-center">
-       <img class="img-fluid cover" src="{{ asset('frontend/img/mall-dedicated-banner.png') }}">
+       <img class="img-fluid cover" src="{{ asset('upload/client_images/' . $client->cover_photo ) }}">
     </div>
     <div class="restaurant-detailed-header">
        <div class="container">
           <div class="row d-flex align-items-end">
              <div class="col-md-8">
                 <div class="restaurant-detailed-header-left">
-                   <img class="img-fluid mr-3 float-left" alt="osahan" src="img/1.jpg">
-                   <h2 class="text-white">Spice Hut Indian Restaurant</h2>
-                   <p class="text-white mb-1"><i class="icofont-location-pin"></i> 2036 2ND AVE, NEW YORK, NY 10029 <span class="badge badge-success">OPEN</span>
+                   <img class="img-fluid mr-3 float-left" alt="osahan" src="{{ asset('upload/client_images/' . $client->photo ) }}">
+                   <h2 class="text-white">{{ $client->name }}</h2>
+                   <p class="text-white mb-1"><i class="icofont-location-pin"></i>{{ $client->address }} <span class="badge badge-success">OPEN</span>
                    </p>
-                   <p class="text-white mb-0"><i class="icofont-food-cart"></i> North Indian, Chinese, Fast Food, South Indian
+                   <p class="text-white mb-0"><i class="icofont-food-cart"></i>  {{$menuNamesString}}
                    </p>
                 </div>
              </div>
@@ -66,23 +76,36 @@
              <div class="offer-dedicated-body-left">
                 <div class="tab-content" id="pills-tabContent">
                    <div class="tab-pane fade show active" id="pills-order-online" role="tabpanel" aria-labelledby="pills-order-online-tab">
-                      <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4 explore-outlets"> 
-                         <h6 class="mb-3">Most Popular  <span class="badge badge-success"><i class="icofont-tags"></i> 15% Off All Items </span></h6>
-                         <div class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3">
-                            
-                            <div class="item">
-                               <div class="mall-category-item">
-                                  <a href="#">
-                                     <img class="img-fluid" src="{{ asset('frontend/img/list/1.png') }}">
-                                     <h6>Burgers</h6>
-                                     <small>5 ITEMS</small>
-                                  </a>
-                               </div>
-                            </div>
-  
-                            
-                         </div>
-                      </div>
+
+    @php
+        $populers = App\Models\Product::where('status',1)->where('client_id',$client->id)->where('most_populer',1)->orderBy('id','desc')->limit(5)->get();
+    @endphp                
+    <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4 explore-outlets"> 
+        <h6 class="mb-3">Most Popular  <span class="badge badge-success"><i class="icofont-tags"></i> 15% Off All Items </span></h6>
+        <div class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3">
+       
+       @foreach ($populers as $populer) 
+        <div class="item">
+            <div class="mall-category-item">
+                <a href="#">
+                    <img class="img-fluid" src="{{ asset($populer->image) }}">
+                    <h6>{{ $populer->name }}</h6>
+                    @if ($populer->discount_price == NULL)
+                        ${{$populer->price}}
+                    @else
+                    $<del>{{$populer->price}}</del> ${{$populer->discount_price}}
+                    @endif
+                    <span class="float-right">
+                     <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a> 
+                    </span>
+                </a>
+            </div>
+        </div>
+        @endforeach
+
+        
+        </div>
+    </div>
     <div class="row">
         <h5 class="mb-4 mt-3 col-md-12">Best Sellers</h5>
         
