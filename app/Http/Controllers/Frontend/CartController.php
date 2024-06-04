@@ -58,6 +58,22 @@ class CartController extends Controller
     }
      //End Method 
 
+     public function CartRemove(Request $request){
+        $cart = session()->get('cart',[]);
+
+        if (isset($cart[$request->id])) {
+           unset($cart[$request->id]);
+           session()->put('cart',$cart);
+        }
+        $notification = array(
+            'message' => 'Product Remove Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+     }
+      //End Method 
+
 
 }
  
