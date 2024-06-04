@@ -72,6 +72,11 @@ class CartController extends Controller
      }
       //End Method 
 
+    public function ApplyCoupon(){
+
+    }
+     //End Method 
+
 
 }
  

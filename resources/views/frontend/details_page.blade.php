@@ -472,13 +472,27 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
       @endif
 
                    
-                </div>
+     </div>
+
+
+     <div class="mb-2 bg-white rounded p-2 clearfix">
+      <div class="input-group input-group-sm mb-2">
+         <input type="text" class="form-control" placeholder="Enter promo code" id="coupon_name">
+         <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" id="button-addon2" onclick="ApplyCoupon()" ><i class="icofont-sale-discount"></i> APPLY</button>
+         </div>
+      </div> 
+   </div>
+
+
+
    <div class="mb-2 bg-white rounded p-2 clearfix">
       <img class="img-fluid float-left" src="{{ asset('frontend/img/wallet-icon.png') }}">
       <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">${{ $total }}</span></h6>
       <p class="seven-color mb-1 text-right">Extra charges may apply</p>
-      <p class="text-black mb-0 text-right">You have saved $955 on the bill</p>
+      
    </div>
+
                 <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
              </div>
              
