@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
+      <meta name="csrf-token" content="{{ csrf_token() }}" >
       <title>User Dashboard - Online Food Ordering Website</title>
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="{{ asset('frontend/img/favicon.png') }}">
@@ -69,6 +70,15 @@
     break; 
  }
  @endif 
+</script>
+
+<script>
+      <script type="text/javascript">
+         $.ajaxSetup({
+            headers:{
+               'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+         });
 </script>
 
 

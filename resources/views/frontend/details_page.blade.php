@@ -1,6 +1,7 @@
 @extends('frontend.dashboard.dashboard')
 @section('dashboard')
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 @php
 $products = App\Models\Product::where('client_id',$client->id)->limit(3)->get();
 $menuNames = $products->map(function($product){
@@ -501,7 +502,39 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
 
       $('.remove').on('click', function() {
          var id = $(this).data('id');
+         removeFromCart(id);
       });
+
+      function updateQuantity(id,quantity){
+         $.ajax({
+            url: '{{ route("cart.updateQuantity") }}',
+            method: 'POST',
+            data: {
+               _token: '{{ csrf_token() }}',
+               id: id,
+               quantity: quantity
+            },
+            success: function(response){
+               location.reload();
+            }
+         })
+      }
+
+      function removeFromCart(id){
+         $.ajax({
+            url: '{{ route("cart.remove") }}',
+            method: 'POST',
+            data: {
+               _token: '{{ csrf_token() }}',
+               id: id
+            },
+            success: function(response){
+               location.reload();
+            }
+         });
+      }
+
+ 
 
    })
  </script>

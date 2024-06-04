@@ -42,6 +42,22 @@ class CartController extends Controller
     }
     //End Method 
 
+    public function updateCartQuanity(Request $request){
+        $cart = session()->get('cart',[]);
+
+        if (isset($cart[$request->id])) {
+           $cart[$request->id]['quantity'] = $request->quantity;
+           session()->put('cart',$cart);
+        }
+        $notification = array(
+            'message' => 'Cart Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+     //End Method 
+
 
 }
  
