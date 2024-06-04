@@ -47,6 +47,9 @@
  <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>

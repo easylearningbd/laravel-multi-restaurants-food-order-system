@@ -49,12 +49,12 @@ class CartController extends Controller
            $cart[$request->id]['quantity'] = $request->quantity;
            session()->put('cart',$cart);
         }
-        $notification = array(
-            'message' => 'Cart Updated Successfully',
-            'alert-type' => 'success'
-        );
 
-        return redirect()->back()->with($notification);
+       return response()->json([
+        'message' => 'Quantity Updated',
+        'alert-type' => 'success'
+       ]);
+
     }
      //End Method 
 
@@ -65,12 +65,10 @@ class CartController extends Controller
            unset($cart[$request->id]);
            session()->put('cart',$cart);
         }
-        $notification = array(
-            'message' => 'Product Remove Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->back()->with($notification);
+        return response()->json([
+        'message' => 'Cart Remove Successfully',
+        'alert-type' => 'success'
+       ]);
      }
       //End Method 
 
