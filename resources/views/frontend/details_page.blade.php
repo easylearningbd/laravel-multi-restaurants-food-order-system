@@ -440,9 +440,14 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
    <div class="gold-members p-2 border-bottom">
          <p class="text-gray mb-0 float-right ml-2">${{ $details['price'] * $details['quantity'] }}</p>
          <span class="count-number float-right">
-         <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-         <input class="count-number-input" type="text" value="1" readonly="">
-         <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
+        
+        <button class="btn btn-outline-secondary  btn-sm left dec" data-id="{{ $id }}" > <i class="icofont-minus"></i> </button>
+        
+         <input class="count-number-input" type="text" value="{{  $details['quantity'] }}" readonly="">
+         
+         <button class="btn btn-outline-secondary btn-sm right inc" data-id="{{ $id }}" > <i class="icofont-plus"></i> </button>
+
+         <button class="btn btn-outline-danger btn-sm right remove" data-id="{{ $id }}"> <i class="icofont-trash"></i> </button>
          </span>
          <div class="media">
             <div class="mr-2"><img src="{{ asset($details['image']) }}"  width="25px" ></div>
@@ -476,6 +481,29 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
     </div>
  </section>
 
- 
+ <script>
+   $(document).ready(function() {
+      $('.inc').on('click', function() {
+         var id = $(this).data('id');
+         var input = $(this).closest('span').find('input');
+         var newQuantity = parseInt(input.val()) + 1;
+         updateQuantity(id,newQuantity);
+      });
+
+      $('.dec').on('click', function() {
+         var id = $(this).data('id');
+         var input = $(this).closest('span').find('input');
+         var newQuantity = parseInt(input.val()) - 1;
+         if (newQuantity >= 1) {
+            updateQuantity(id,newQuantity);
+         } 
+      });
+
+      $('.remove').on('click', function() {
+         var id = $(this).data('id');
+      });
+
+   })
+ </script>
 
 @endsection
