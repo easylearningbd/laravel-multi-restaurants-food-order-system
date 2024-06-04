@@ -1,6 +1,6 @@
 @extends('frontend.dashboard.dashboard')
 @section('dashboard')
-
+ 
 @php
 $products = App\Models\Product::where('client_id',$client->id)->limit(3)->get();
 $menuNames = $products->map(function($product){
@@ -533,6 +533,6 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
     </div>
  </section>
 
-
+ 
 
 @endsection
