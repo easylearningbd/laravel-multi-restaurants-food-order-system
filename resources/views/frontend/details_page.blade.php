@@ -426,7 +426,7 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
                 <img class="img-fluid float-left mr-3" src="{{ asset('frontend/img/earn-score-icon.png') }}">
                 <h6 class="pt-0 text-primary mb-1 font-weight-bold">OFFER</h6>
 
-     <pre>{{ print_r(Session::get('coupon'), true) }}</pre>
+     {{-- <pre>{{ print_r(Session::get('coupon'), true) }}</pre> --}}
               
                 @if ($coupon == NULL)
                 <p class="mb-0">No Coupon is Available </p>
@@ -481,7 +481,9 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
    <div class="mb-2 bg-white rounded p-2 clearfix">
       <p class="mb-1">Item Total <span class="float-right text-dark">{{ count((array) session('cart')) }}</span></p>
       
-      <p class="mb-1">Coupon Name <span class="float-right text-dark">{{ (session()->get('coupon')['coupon_name']) }} ( {{ (session()->get('coupon')['discount']) }} %) </span></p>
+      <p class="mb-1">Coupon Name <span class="float-right text-dark">{{ (session()->get('coupon')['coupon_name']) }} ( {{ (session()->get('coupon')['discount']) }} %) </span>
+      <a type="submit" onclick="couponRemove()"><i class="icofont-ui-delete float-right" style="color: red;"></i></a>
+      </p>
 
        
       <p class="mb-1 text-success">Total Discount 
