@@ -19,21 +19,35 @@
                      </a>
                      
                   </li>
-      @php
-      $id = Auth::user()->id;
-      $profileData = App\Models\User::find($id);
-   @endphp    
-
+                  @auth
+                  @php
+                  $id = Auth::user()->id;
+                  $profileData = App\Models\User::find($id);
+               @endphp 
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <img alt="Generic placeholder image" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" class="nav-osahan-pic rounded-pill"> My Account
-                     </a>
-                     <div class="dropdown-menu dropdown-menu-right shadow-sm border-0">
-                        <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="icofont-food-cart"></i> Dashboard</a>
-                        <a class="dropdown-item" href="{{ route('user.logout') }}"><i class="icofont-sale-discount"></i> Logout </a>
-                        
-                     </div>
-                  </li>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img alt="Generic placeholder image" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" class="nav-osahan-pic rounded-pill"> My Account
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow-sm border-0">
+                      <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="icofont-food-cart"></i> Dashboard</a>
+                      <a class="dropdown-item" href="{{ route('user.logout') }}"><i class="icofont-sale-discount"></i> Logout </a>
+                       
+                    </div>
+                 </li>
+                  @else
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="{{ route('login') }}" role="button"   aria-haspopup="true" aria-expanded="false">
+                    Login
+                    </a> 
+                 </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link" href="{{ route('register') }}" role="button" aria-haspopup="true" aria-expanded="false">
+                    Register
+                    </a> 
+                 </li>
+                  @endauth
+
+
                   <li class="nav-item dropdown dropdown-cart">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-shopping-basket"></i> Cart
