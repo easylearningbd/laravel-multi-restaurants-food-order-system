@@ -74,7 +74,7 @@ class CartController extends Controller
       //End Method 
 
     public function ApplyCoupon(Request $request){
-        $coupon = Coupon::where('coupon_name',$request->coupon_name)->where('validit','>=',Carbon::now()->format('Y-m-d'))->first();
+        $coupon = Coupon::where('coupon_name',$request->coupon_name)->where('validity','>=',Carbon::now()->format('Y-m-d'))->first();
 
         $cart = session()->get('cart',[]);
         $totalAmount = 0;

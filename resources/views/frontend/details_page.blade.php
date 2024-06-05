@@ -425,6 +425,9 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
              <div class="bg-white rounded shadow-sm text-white mb-4 p-4 clearfix restaurant-detailed-earn-pts card-icon-overlap">
                 <img class="img-fluid float-left mr-3" src="{{ asset('frontend/img/earn-score-icon.png') }}">
                 <h6 class="pt-0 text-primary mb-1 font-weight-bold">OFFER</h6>
+
+     <pre>{{ print_r(Session::get('coupon'), true) }}</pre>
+              
                 @if ($coupon == NULL)
                 <p class="mb-0">No Coupon is Available </p>
                 @else
@@ -474,7 +477,34 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
                    
      </div>
 
+   @if (Session::has('coupon'))
+   <div class="mb-2 bg-white rounded p-2 clearfix">
+      <p class="mb-1">Item Total <span class="float-right text-dark">{{ count((array) session('cart')) }}</span></p>
+      
+      <p class="mb-1">Coupon Name <span class="float-right text-dark">{{ (session()->get('coupon')['coupon_name']) }} ( {{ (session()->get('coupon')['discount']) }} %) </span></p>
 
+       
+      <p class="mb-1 text-success">Total Discount 
+         <span class="float-right text-success">
+
+            @if (Session::has('coupon'))
+               ${{ $total - Session()->get('coupon')['discount_amount'] }}
+            @else
+            ${{ $total }}
+            @endif
+           
+         </span>
+      </p>
+      <hr />
+      <h6 class="font-weight-bold mb-0">TO PAY  <span class="float-right">
+      @if (Session::has('coupon'))
+      ${{ Session()->get('coupon')['discount_amount'] }}
+      @else
+      ${{ $total }}
+      @endif</span></h6>
+   </div>
+      
+   @else 
      <div class="mb-2 bg-white rounded p-2 clearfix">
       <div class="input-group input-group-sm mb-2">
          <input type="text" class="form-control" placeholder="Enter promo code" id="coupon_name">
@@ -483,12 +513,19 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
          </div>
       </div> 
    </div>
+   @endif
 
 
 
    <div class="mb-2 bg-white rounded p-2 clearfix">
       <img class="img-fluid float-left" src="{{ asset('frontend/img/wallet-icon.png') }}">
-      <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">${{ $total }}</span></h6>
+      <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger"> 
+         @if (Session::has('coupon'))
+         ${{ Session()->get('coupon')['discount_amount'] }}
+         @else
+         ${{ $total }}
+         @endif
+      </span></h6>
       <p class="seven-color mb-1 text-right">Extra charges may apply</p>
       
    </div>
