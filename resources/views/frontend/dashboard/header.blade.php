@@ -81,15 +81,29 @@
 
 
          <div class="dropdown-cart-top-body border-top p-4">
-            <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub 12" (30 cm) x 1   <span class="float-right text-secondary">$314</span></p>
-             
+         @php $total = 0 @endphp
+         @if (session('cart'))
+         @foreach (session('cart') as $id => $details) 
+         @php
+            $total += $details['price'] * $details['quantity']
+         @endphp 
+           
+         <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i>{{ $details['name'] }} x {{  $details['quantity'] }}   <span class="float-right text-secondary">${{ $details['price'] * $details['quantity'] }}</span></p>
+         @endforeach
+         @endif
+
          </div>
          <div class="dropdown-cart-top-footer border-top p-4">
-            <p class="mb-0 font-weight-bold text-secondary">Sub Total <span class="float-right text-dark">$499</span></p>
-            <small class="text-info">Extra charges may apply</small>  
+            <p class="mb-0 font-weight-bold text-secondary">Sub Total <span class="float-right text-dark"> 
+               @if (Session::has('coupon'))
+               ${{ Session()->get('coupon')['discount_amount'] }}
+               @else
+               ${{ $total }}
+               @endif</span></p>
+             
          </div>
          <div class="dropdown-cart-top-footer border-top p-2">
-            <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Checkout</a>
+            <a class="btn btn-success btn-block btn-lg" href="{{ route('checkout') }}"> Checkout</a>
          </div>
       </div>
    </li>
