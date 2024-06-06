@@ -66,7 +66,7 @@
                    </td>                
                
                 
-        <td><a href="{{ route('admin.order.details',$order->id) }}" class="btn btn-info waves-effect waves-light"> <i class="fas fa-eye"></i> </a> 
+        <td><a href="{{ route('client.order.details',$order->id) }}" class="btn btn-info waves-effect waves-light"> <i class="fas fa-eye"></i> </a> 
 
                 </td> 
             </tr>

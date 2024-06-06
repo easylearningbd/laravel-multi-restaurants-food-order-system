@@ -184,6 +184,7 @@ Route::middleware(['client','status'])->group(function () {
     
     Route::controller(ManageOrderController::class)->group(function(){
         Route::get('/all/client/orders', 'AllClientOrders')->name('all.client.orders'); 
+        Route::get('/client/order/details/{id}', 'ClientOrderDetails')->name('client.order.details'); 
     });
 
     
