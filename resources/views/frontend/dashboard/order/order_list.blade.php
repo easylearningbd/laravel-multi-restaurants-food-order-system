@@ -43,7 +43,7 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{ $item->order_date }}</td>
                     <td>{{ $item->invoice_no }}</td>
-                    <td>{{ $item->amount }}</td>
+                    <td>${{ $item->amount }}</td>
                     <td>{{ $item->payment_method }}</td>
                     <td>
                     @if ($item->status == 'Pending')
@@ -58,8 +58,8 @@
                     </td>                
                    
                     
-            <td class="d-flex">
-             <a href="{{ route('admin.order.details',$item->id) }}" class="btn-small d-block text-primary"> <i class="fas fa-eye"></i> View</a> 
+            <td class="d-flex justify-content-between">
+             <a href="{{ route('user.order.details',$item->id) }}" class="btn-small d-block text-primary"> <i class="fas fa-eye"></i> View</a> 
 
             <a href="{{ route('admin.order.details',$item->id) }}" class="btn-small d-block text-danger"> <i class="fa fa-download"></i> Invoice</a>
     
