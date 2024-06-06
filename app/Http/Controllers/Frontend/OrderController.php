@@ -27,10 +27,10 @@ class OrderController extends Controller
         $totalAmount = 0;
 
         foreach($cart as $car){
-            $totalAmount += ($cart['price'] * $cart['quantity']);
+            $totalAmount += ($car['price'] * $car['quantity']);
         }
 
-        if (Session->has('coupon')) {
+        if (Session()->has('coupon')) {
             $tt = (Session()->get('coupon')['discount_amount']);
         } else {
             $tt = $totalAmount;
@@ -58,8 +58,33 @@ class OrderController extends Controller
 
         ]);
 
+        $carts = session()->get('cart',[]);
+        foreach ($carts as $cart) {
+            OrderItem::insert([
+                'order_id' => $order_id,
+                'product_id' => $cart['id'],
+                'client_id' => $cart['client_id'],
+                'qty' => $cart['quantity'],
+                'price' => $cart['price'],
+                'created_at' => Carbon::now(), 
+            ]);
+        } // End Foreach
 
+        if (Session::has('coupon')) {
+           Session::forget('coupon');
+        }
 
+        if (Session::has('cart')) {
+            Session::forget('cart');
+         }
+
+         $notification = array(
+            'message' => 'Order Placed Successfully',
+            'alert-type' => 'success'
+        );
+
+        return view('frontend.checkout.thanks')->with($notification);
+ 
     }
     //End Method 
 
