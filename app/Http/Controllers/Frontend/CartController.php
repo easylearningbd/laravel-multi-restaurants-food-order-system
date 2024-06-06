@@ -96,7 +96,7 @@ class CartController extends Controller
              $cvendorId = $coupon->client_id;
 
              if ($cvendorId == $clientIds[0]) {
-                Session::put('coupon',[
+                Session::put('coupon',[ 
                     'coupon_name' => $coupon->coupon_name,
                     'discount' => $coupon->discount,
                     'discount_amount' => $totalAmount - ($totalAmount * $coupon->discount/100),
