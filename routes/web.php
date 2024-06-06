@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Admin\ManageOrderController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -119,6 +120,11 @@ Route::middleware('admin')->group(function () {
         Route::get('/edit/banner/{id}', 'EditBanner');
         Route::post('/banner/update', 'BannerUpdate')->name('banner.update'); 
         Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner'); 
+    });
+
+    Route::controller(ManageOrderController::class)->group(function(){
+        Route::get('/pending/order', 'PendingOrder')->name('pending.order'); 
+        
     });
  
     
