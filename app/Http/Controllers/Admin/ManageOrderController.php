@@ -48,6 +48,39 @@ class ManageOrderController extends Controller
 
     } //End Method 
 
+    public function PendingToConfirm($id){
+        Order::find($id)->update(['status' => 'confirm']);
+        $notification = array(
+            'message' => 'Order Confirm Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('confirm.order')->with($notification);
+    }
+    //End Method 
+
+    public function ConfirmToProcessing($id){
+        Order::find($id)->update(['status' => 'processing']);
+        $notification = array(
+            'message' => 'Order Processing Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('processing.order')->with($notification);
+    }
+    //End Method 
+
+    public function ProcessingToDiliverd($id){
+        Order::find($id)->update(['status' => 'deliverd']);
+        $notification = array(
+            'message' => 'Order Processing Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('deliverd.order')->with($notification);
+    }
+    //End Method 
+
 
 
 } 

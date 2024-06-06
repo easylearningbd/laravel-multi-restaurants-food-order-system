@@ -108,18 +108,18 @@
                 <td><span class="badge bg-success">{{ $order->status }}</span></td> 
             </tr>
 
-            <tr> 
-                <th width="50%"> </th>
-                <td> 
-                    @if($order->status == 'Pending')
-                    <a href="" class="btn btn-block btn-success">Confirm Order</a>
-                    @elseif ($order->status == 'confirm')
-                    <a href="" class="btn btn-block btn-success">Processing Order</a>
-                    @elseif ($order->status == 'processing')
-                    <a href="" class="btn btn-block btn-success">Deliverd Order</a>
-                    @endif
-                </td> 
-            </tr>
+<tr> 
+    <th width="50%"> </th>
+    <td> 
+        @if($order->status == 'Pending')
+        <a href="{{ route('pening_to_confirm',$order->id) }}" class="btn btn-block btn-success" id="confirmOrder">Confirm Order</a>
+        @elseif ($order->status == 'confirm')
+        <a href="{{ route('confirm_to_processing',$order->id) }}" class="btn btn-block btn-success" id="processingOrder">Processing Order</a>
+        @elseif ($order->status == 'processing')
+        <a href="{{ route('processing_to_deliverd',$order->id) }}" class="btn btn-block btn-success" id="deliverdOrder">Deliverd Order</a>
+        @endif
+    </td> 
+</tr>
             
         </tbody>
     </table>
@@ -128,13 +128,95 @@
         </div>
     </div> <!-- end col -->
 
-
-
-
-
-
-
+ 
 </div> <!-- end row --> 
+
+
+
+<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-1">
+    <div class="col">
+        <div class="card">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-1">
+                            <label>Image</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Product Name</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Restruatnt Name </label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Product Code</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Quantity</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Price</label>
+                        </td> 
+                    </tr>
+    @foreach ($orderItem as $item)
+    <tr>
+        <td class="col-md-1">
+            <label>
+                <img src="{{ asset($item->product->image) }}" style="width:50px; height:50px">
+            </label>
+        </td>
+        <td class="col-md-2">
+            <label>
+                {{ $item->product->name }}
+            </label>
+        </td>
+        @if ($item->client_id == NULL)
+        <td class="col-md-2">
+            <label>
+               Owner
+            </label>
+        </td>
+        @else
+        <td class="col-md-2">
+            <label>
+                {{ $item->product->client->name }}
+            </label>
+        </td>
+        @endif
+        <td class="col-md-2">
+            <label>
+                {{ $item->product->code }}
+            </label>
+        </td>
+        <td class="col-md-2">
+            <label>
+                {{ $item->qty }}
+            </label>
+        </td>
+        <td class="col-md-2">
+            <label>
+                {{ $item->price }} <br> Total = $ {{ $item->price * $item->qty }}
+            </label>
+        </td> 
+    </tr> 
+    @endforeach 
+                </tbody>
+            </table>
+    <div>
+        <h4>Total Price: $ {{ $totalPrice }}</h4>
+    </div>
+
+        </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
          
     </div> <!-- container-fluid -->

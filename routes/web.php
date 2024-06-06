@@ -128,8 +128,13 @@ Route::middleware('admin')->group(function () {
         Route::get('/processing/order', 'ProcessingOrder')->name('processing.order'); 
         Route::get('/deliverd/order', 'DeliverdOrder')->name('deliverd.order'); 
 
-        Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details'); 
+        Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details');  
+    });
 
+    Route::controller(ManageOrderController::class)->group(function(){
+        Route::get('/pening_to_confirm/{id}', 'PendingToConfirm')->name('pening_to_confirm');
+        Route::get('/confirm_to_processing/{id}', 'ConfirmToProcessing')->name('confirm_to_processing'); 
+        Route::get('/processing_to_deliverd/{id}', 'ProcessingToDiliverd')->name('processing_to_deliverd'); 
         
     });
  
