@@ -81,6 +81,17 @@ class ManageOrderController extends Controller
     }
     //End Method 
 
+    public function AllClientOrders(){
+        $clientId = Auth::guard('client')->id();
+
+        $orderItemGroupData = OrderItem::with(['product','order'])->where('client_id',$clientId)
+        ->orderBy('order_id','desc')
+        ->get()
+        ->groupBy('order_id');
+        return view('client.backend.order.all_orders',compact('orderItemGroupData'));
+    }
+      //End Method 
+
 
 
 } 
