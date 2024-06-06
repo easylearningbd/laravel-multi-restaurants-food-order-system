@@ -30,9 +30,11 @@
             <a class="nav-link {{ Route::currentRouteName() === 'all.wishlist' ? 'active' : '' }}"  href="{{ route('all.wishlist') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Favourites </a>
          </li>
 
-          <li class="nav-item">
-             <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Orders</a>
-          </li>
+         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'user.order.list' ? 'active' : '' }}"  href="{{ route('user.order.list') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Orders </a>
+         </li>
+
+          
           <li class="nav-item">
              <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false"><i class="icofont-sale-discount"></i> Offers</a>
           </li>
