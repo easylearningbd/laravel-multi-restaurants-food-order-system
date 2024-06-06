@@ -128,6 +128,8 @@ Route::middleware('admin')->group(function () {
         Route::get('/processing/order', 'ProcessingOrder')->name('processing.order'); 
         Route::get('/deliverd/order', 'DeliverdOrder')->name('deliverd.order'); 
 
+        Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details'); 
+
         
     });
  
