@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "barryvdh/laravel-dompdf": "^2.2",
         "haruncpi/laravel-id-generator": "^1.1",
         "intervention/image": "^3.6",
         "laravel/framework": "^11.0",
