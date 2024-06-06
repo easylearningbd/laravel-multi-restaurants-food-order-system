@@ -121,17 +121,17 @@
                     </a>
                 </li> 
                 <li>
-                    <a href="{{ route('all.banner') }}">
+                    <a href="{{ route('confirm.order') }}">
                         <span data-key="t-calendar">Confirm Orders </span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('all.banner') }}">
+                    <a href="{{ route('processing.order') }}">
                         <span data-key="t-calendar">Processing Orders </span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('all.banner') }}">
+                    <a href="{{ route('deliverd.order') }}">
                         <span data-key="t-calendar">Deliverd Orders </span>
                     </a>
                 </li>
