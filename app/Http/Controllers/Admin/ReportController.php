@@ -78,5 +78,55 @@ class ReportController extends Controller
     }
       // End Method 
 
+      public function ClientSearchByMonth(Request $request){
+        $month = $request->month;
+        $years = $request->year_name;
+
+        $cid = Auth::guard('client')->id();
+
+        $orders = Order::where('order_month',$month)->where('order_year',$years)
+        ->whereHas('OrderItems', function ($query) use ($cid){
+            $query->where('client_id',$cid);
+        })
+        ->latest()
+        ->get();
+
+        $orderItemGroupData = OrderItem::with(['order','product'])
+        ->whereIn('order_id',$orders->pluck('id'))
+        ->where('client_id',$cid)
+        ->orderBy('order_id','desc')
+        ->get()
+        ->groupBy('order_id');
+
+        return view('client.backend.report.search_by_month',compact('orderItemGroupData','month','years'));
+    }
+      // End Method 
+
+      public function ClientSearchByYear(Request $request){
+         
+        $years = $request->year;
+
+        $cid = Auth::guard('client')->id();
+
+        $orders = Order::where('order_year',$years)
+        ->whereHas('OrderItems', function ($query) use ($cid){
+            $query->where('client_id',$cid);
+        })
+        ->latest()
+        ->get();
+
+        $orderItemGroupData = OrderItem::with(['order','product'])
+        ->whereIn('order_id',$orders->pluck('id'))
+        ->where('client_id',$cid)
+        ->orderBy('order_id','desc')
+        ->get()
+        ->groupBy('order_id');
+
+        return view('client.backend.report.search_by_year',compact('orderItemGroupData','years'));
+    }
+      // End Method 
+
+
+
 
 }
