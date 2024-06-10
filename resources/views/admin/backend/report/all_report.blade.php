@@ -59,7 +59,7 @@
 
 <div class="col-sm-4">
     <div class="card">
-    <form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+    <form id="myForm" action="{{ route('admin.search.bymonth') }}" method="post" enctype="multipart/form-data">
         @csrf
         
     <div class="row">
@@ -75,7 +75,7 @@
                         <option value="March">March</option>
                         <option value="April">April</option>
                         <option value="May">May</option>
-                        <option value="Jun">Jun</option>
+                        <option value="June">June</option>
                         <option value="July">July</option>
                         <option value="August">August</option>
                         <option value="September">September</option>
@@ -111,7 +111,7 @@
 
 <div class="col-sm-4">
     <div class="card">
-    <form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+    <form id="myForm" action="{{ route('admin.search.byyear') }}" method="post" enctype="multipart/form-data">
         @csrf
         
     <div class="row">
