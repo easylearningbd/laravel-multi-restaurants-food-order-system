@@ -34,7 +34,7 @@
             
 <div class="col-sm-4">
     <div class="card">
-    <form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+    <form id="myForm" action="{{ route('admin.search.bydate') }}" method="post" enctype="multipart/form-data">
         @csrf
         
     <div class="row">
