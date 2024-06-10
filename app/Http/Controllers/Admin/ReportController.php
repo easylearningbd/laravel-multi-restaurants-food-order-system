@@ -45,5 +45,10 @@ class ReportController extends Controller
     }
      // End Method 
 
+     public function ClientAllReports(){
+        return view('client.backend.report.all_report');
+    }
+    // End Method 
+
 
 }

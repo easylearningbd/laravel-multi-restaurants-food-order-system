@@ -202,6 +202,13 @@ Route::middleware(['client','status'])->group(function () {
         Route::get('/client/order/details/{id}', 'ClientOrderDetails')->name('client.order.details'); 
     });
 
+    Route::controller(ReportController::class)->group(function(){
+        Route::get('/client/all/reports', 'ClientAllReports')->name('client.all.reports'); 
+        Route::post('/admin/search/bydate', 'AminSearchByDate')->name('admin.search.bydate');
+        Route::post('/admin/search/bymonth', 'AminSearchByMonth')->name('admin.search.bymonth');
+        Route::post('/admin/search/byyear', 'AminSearchByYear')->name('admin.search.byyear');
+    });
+
     
 });
  // End Client Middleware
