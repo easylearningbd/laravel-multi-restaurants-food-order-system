@@ -358,7 +358,14 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
    <div class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
       <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a>
       <h5 class="mb-1">All Ratings and Reviews</h5>
-   
+ <style>
+   .icofont-ui-rating {
+      color: #ccc;
+   }
+   .icofont-ui-rating.active {
+      color: #dd646e;
+   }
+   </style>  
    @php
       $reviews = App\Models\Review::where('client_id',$client->id)->where('status',1)->latest()->limit(5)->get();
    @endphp   
@@ -371,11 +378,16 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
             <div class="media-body">
                <div class="reviews-members-header">
                   <span class="star-rating float-right">
-                  <a href="#"><i class="icofont-ui-rating active"></i></a>
-                  <a href="#"><i class="icofont-ui-rating active"></i></a>
-                  <a href="#"><i class="icofont-ui-rating active"></i></a>
-                  <a href="#"><i class="icofont-ui-rating active"></i></a>
-                  <a href="#"><i class="icofont-ui-rating"></i></a>
+                    @php
+                       $rating = $review->rating ?? 0;
+                    @endphp 
+                   @for ($i = 1; $i <= 5; $i++)
+                     @if ($i <= $rating)
+                     <a href="#"><i class="icofont-ui-rating active"></i></a> 
+                     @else
+                     <a href="#"><i class="icofont-ui-rating"></i></a>
+                     @endif   
+                  @endfor 
                   </span>
                   <h6 class="mb-1"><a class="text-black" href="#">{{ $review->user->name }}</a></h6>
                   <p class="text-gray"> {{ Carbon\Carbon::parse($review->created_at)->diffForHumans() }} </p>
