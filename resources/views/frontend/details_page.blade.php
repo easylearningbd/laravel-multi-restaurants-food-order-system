@@ -388,28 +388,63 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
                          <hr>
                          <a class="text-center w-100 d-block mt-4 font-weight-bold" href="#">See All Reviews</a>
                       </div>
-                      <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
-                         <h5 class="mb-4">Leave Comment</h5>
-                         <p class="mb-2">Rate the Place</p>
-                         <div class="mb-4">
-                            <span class="star-rating">
-                            <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                            <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                            <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                            <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                            <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                            </span>
-                         </div>
-                         <form>
-                            <div class="form-group">
-                               <label>Your Comment</label>
-                               <textarea class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                               <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
-                            </div>
-                         </form>
-                      </div>
+
+
+   <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
+     @guest
+     <p><b>For Add Resturant Review. You need to login first <a href="{{ route('login') }}"> Login Here </a> </b></p>
+     @else 
+
+  <style>
+   .star-rating label {
+      display: inline-flex;
+      margin-right: 5px;
+      cursor: pointer;
+   }
+   .star-rating input[type="radio"]{
+      display: none;
+   }
+   .star-rating input[type="radio"]:checked + .star-icon{
+      color: #dd646e;
+   }
+  </style> 
+
+      <h5 class="mb-4">Leave Comment</h5>
+      <p class="mb-2">Rate the Place</p>
+      <form method="" action="">
+         @csrf
+         
+      <div class="mb-4">
+         <span class="star-rating">
+            <label for="rating-1">
+            <input type="radio" name="rating" id="rating-1" value="1" hidden><i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+            <label for="rating-2">
+            <input type="radio" name="rating" id="rating-2" value="1" hidden><i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+            <label for="rating-3">
+            <input type="radio" name="rating" id="rating-3" value="1" hidden><i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+            <label for="rating-4">
+            <input type="radio" name="rating" id="rating-4" value="1" hidden><i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+            <label for="rating-5">
+            <input type="radio" name="rating" id="rating-5" value="1" hidden><i class="icofont-ui-rating icofont-2x star-icon"></i></label> 
+        
+        
+         </span>
+      </div>
+      
+         <div class="form-group">
+            <label>Your Comment</label>
+            <textarea class="form-control" name="comment" id="comment"></textarea>
+         </div>
+         <div class="form-group">
+            <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
+         </div>
+      </form>
+
+   @endguest
+   </div>
                    </div>
                 </div>
              </div>
@@ -505,7 +540,7 @@ $coupons = App\Models\Coupon::where('client_id',$client->id)->where('status','1'
       ${{ $total }}
       @endif</span></h6>
    </div>
-      
+       
    @else 
      <div class="mb-2 bg-white rounded p-2 clearfix">
       <div class="input-group input-group-sm mb-2">
