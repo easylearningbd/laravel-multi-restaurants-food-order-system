@@ -157,11 +157,11 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="gift"></i>
-                <span data-key="t-ui-elements">Extended</span>
+                <span data-key="t-ui-elements">Manage Review</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="extended-lightbox.html" data-key="t-lightbox">Lightbox</a></li>
-                <li><a href="extended-rangeslider.html" data-key="t-range-slider">Range Slider</a></li>
+                <li><a href="{{ route('admin.pending.review') }}" data-key="t-lightbox">Pending Review</a></li>
+                <li><a href="{{ route('admin.approve.review') }}" data-key="t-range-slider">Approve Review</a></li>
                 
             </ul>
         </li>

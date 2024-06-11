@@ -12,7 +12,7 @@ class Review extends Model
 
     public function client(){
         return $this->belongsTo(Client::class, 'client_id','id');
-    }
+    } 
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id','id');
