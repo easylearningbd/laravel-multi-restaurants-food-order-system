@@ -82,13 +82,13 @@
     $(function() {
       $('.toggle-class').change(function() {
           var status = $(this).prop('checked') == true ? 1 : 0; 
-          var client_id = $(this).data('id'); 
+          var review_id = $(this).data('id'); 
            
           $.ajax({
               type: "GET",
               dataType: "json",
-              url: '/clientchangeStatus',
-              data: {'status': status, 'client_id': client_id},
+              url: '/reviewchangeStatus',
+              data: {'status': status, 'review_id': review_id},
               success: function(data){
                 // console.log(data.success)
   
