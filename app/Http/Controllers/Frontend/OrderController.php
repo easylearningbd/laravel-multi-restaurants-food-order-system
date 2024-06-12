@@ -13,7 +13,7 @@ use App\Models\OrderItem;
 use Carbon\Carbon;
 
 class OrderController extends Controller
-{
+{ 
     public function CashOrder(Request $request){
 
         $validateData = $request->validate([
