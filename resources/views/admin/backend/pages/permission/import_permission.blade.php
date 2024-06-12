@@ -15,7 +15,7 @@
                         <ol class="breadcrumb m-0">
                             
       <li class="breadcrumb-item active">
-       <a href="{{ route('add.permission') }}" class="btn btn-danger waves-effect waves-light">Export</a></li>
+       <a href="{{ route('export') }}" class="btn btn-danger waves-effect waves-light">Export</a></li>
                         </ol>
                     </div>
 
