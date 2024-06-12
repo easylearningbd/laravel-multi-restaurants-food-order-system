@@ -10,11 +10,15 @@
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0 font-size-18">All Permission</h4>
 
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <a href="{{ route('add.permission') }}" class="btn btn-primary waves-effect waves-light">Add Permission</a>
-                        </ol>
-                    </div>
+<div class="page-title-right">
+    <ol class="breadcrumb m-0">
+        <a href="{{ route('add.permission') }}" class="btn btn-primary waves-effect waves-light">Add Permission</a>&nbsp;&nbsp;
+        
+        <a href="{{ route('import.permission') }}" class="btn btn-warning waves-effect waves-light">Import</a>&nbsp;&nbsp;
+
+        <a href="{{ route('add.permission') }}" class="btn btn-danger waves-effect waves-light">Export</a>
+    </ol>
+</div>
 
                 </div>
             </div>
