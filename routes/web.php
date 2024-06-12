@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ManageOrderController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\FilterController;
+use App\Http\Controllers\Admin\RoleController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -159,6 +160,12 @@ Route::middleware('admin')->group(function () {
         Route::get('/admin/pending/review', 'AdminPendingReview')->name('admin.pending.review');
         Route::get('/admin/approve/review', 'AdminApproveReview')->name('admin.approve.review'); 
         Route::get('/reviewchangeStatus', 'ReviewChangeStatus'); 
+        
+    });
+
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/all/permission', 'AllPermission')->name('all.permission');
+        
         
     });
  
