@@ -128,7 +128,7 @@
         <i class="icofont-visa-alt"></i> <i class="icofont-mastercard-alt"></i> <i class="icofont-american-express-alt"></i> <i class="icofont-payoneer-alt"></i> <i class="icofont-apple-pay-alt"></i> <i class="icofont-bank-transfer-alt"></i> <i class="icofont-discover-alt"></i> <i class="icofont-jcb-alt"></i>
         </span>
     </p>
-    <form action="{{ route('cash_order') }}" method="post" id="payment-form">
+    <form action="{{ route('stripe_order') }}" method="post" id="payment-form">
       @csrf
      <label for="card-element"></label>
       <input type="hidden" name="name" value="{{ Auth::user()->name }}">
@@ -270,7 +270,7 @@
  <!-- /////////////////////////----------Start JavaScript  ------- ///////////////////////////// -->
 <script type="text/javascript">
    // Create a Stripe client.
-   var stripe = Stripe('pk_test_51MY6UkIwF5xdRTzhCIotZ9vdF7JhAPl8cBKbNeFe6wQsvb28BHmAPfiOS50ddALGIkDjixi1wWY8sEhjmVfYeOQM00BstARv39');
+   var stripe = Stripe('pk_test_51Oml5cGAwoXiNtjJgPPyQngDj9WTjawya4zCsqTn3LPFhl4VvLZZJIh9fW9wqVweFYC5f0YEb9zjUqRpXbkEKT7T00eU1xQvjp');
    // Create an instance of Elements.
    var elements = stripe.elements();
    // Custom styling can be passed to options when creating an Element.
