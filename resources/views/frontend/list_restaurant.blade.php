@@ -31,51 +31,126 @@
                 <div class="filters-header border-bottom pl-4 pr-4 pt-3 pb-3">
                    <h5 class="m-0">Filter By</h5>
                 </div>
-                <div class="filters-body">
-                   <div id="accordion">
-                      <div class="filters-card border-bottom p-4">
-                         <div class="filters-card-header" id="headingOne">
-                            <h6 class="mb-0">
-                               <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                               Location <i class="icofont-arrow-down float-right"></i>
-                               </a>
-                            </h6>
-                         </div>
-                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="filters-card-body card-shop-filters">
-                               <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input" id="cb1">
-                                  <label class="custom-control-label" for="cb1">Ludhiana Junction <small class="text-black-50">230</small>
-                                  </label>
-                               </div>
-                               <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input" id="cb2">
-                                  <label class="custom-control-label" for="cb2">Model Town <small class="text-black-50">95</small>
-                                  </label>
-                               </div>
-                               <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input" id="cb3">
-                                  <label class="custom-control-label" for="cb3">Civil Lines <small class="text-black-50">35</small>
-                                  </label>
-                               </div>
-                               <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input" id="cb4">
-                                  <label class="custom-control-label" for="cb4">Dugri <small class="text-black-50">46</small>
-                                  </label>
-                               </div>
-                               <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input" id="cb5">
-                                  <label class="custom-control-label" for="cb5">PAU <small class="text-black-50">20</small></label>
-                               </div>
-                               <div class="mt-2"><a href="#" class="link">See all</a></div>
-                            </div>
-                         </div>
-                      </div>
-                       
-                    
 
-                   </div>
-                </div>
+   @php
+      $categories = App\Models\Category::orderBy('id','desc')->limit(10)->get();
+   @endphp             
+   <div class="filters-body">
+      <div id="accordion">
+         <div class="filters-card border-bottom p-4">
+            <div class="filters-card-header" id="headingOne">
+               <h6 class="mb-0">
+                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Category <i class="icofont-arrow-down float-right"></i>
+                  </a>
+               </h6>
+            </div>
+
+         
+         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="filters-card-body card-shop-filters">
+               @foreach ($categories as $category) 
+               @php
+                  $categoryProductCount = $products->where('category_id',$category->id)->count();
+               @endphp
+               <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="cb1">
+                  <label class="custom-control-label" for="cb1">{{$category->category_name}} <small class="text-black-50">({{$categoryProductCount}})</small>
+                  </label>
+               </div> 
+               @endforeach 
+            </div>
+         </div>
+       
+
+
+
+         </div>  
+      </div>
+   </div>
+
+
+
+   @php
+   $cities = App\Models\City::orderBy('id','desc')->limit(10)->get();
+  @endphp             
+<div class="filters-body">
+   <div id="accordion">
+      <div class="filters-card border-bottom p-4">
+         <div class="filters-card-header" id="headingOnecity">
+            <h6 class="mb-0">
+               <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOnecity" aria-expanded="true" aria-controls="collapseOnecity">
+               City <i class="icofont-arrow-down float-right"></i>
+               </a>
+            </h6>
+         </div>
+
+      
+      <div id="collapseOnecity" class="collapse show" aria-labelledby="headingOnecity" data-parent="#accordion">
+         <div class="filters-card-body card-shop-filters">
+            @foreach ($cities as $city) 
+            @php
+               $cityProductCount = $products->where('city_id',$city->id)->count();
+            @endphp
+            <div class="custom-control custom-checkbox">
+               <input type="checkbox" class="custom-control-input" id="cb1">
+               <label class="custom-control-label" for="cb1">{{$city->city_name}} <small class="text-black-50">({{$cityProductCount}})</small>
+               </label>
+            </div> 
+            @endforeach 
+         </div>
+      </div>
+     
+
+      </div>  
+   </div>
+</div>
+
+
+
+@php
+$menus = App\Models\Menu::orderBy('id','desc')->limit(10)->get();
+@endphp             
+<div class="filters-body">
+<div id="accordion">
+   <div class="filters-card border-bottom p-4">
+      <div class="filters-card-header" id="headingOnemenu">
+         <h6 class="mb-0">
+            <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOnemenu" aria-expanded="true" aria-controls="collapseOnemenu">
+            Menu <i class="icofont-arrow-down float-right"></i>
+            </a>
+         </h6>
+      </div>
+
+   
+   <div id="collapseOnemenu" class="collapse show" aria-labelledby="headingOnemenu" data-parent="#accordion">
+      <div class="filters-card-body card-shop-filters">
+         @foreach ($menus as $menu) 
+         @php
+            $menuProductCount = $products->where('menu_id',$menu->id)->count();
+         @endphp
+         <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="cb1">
+            <label class="custom-control-label" for="cb1">{{$menu->menu_name}} <small class="text-black-50">({{$menuProductCount}})</small>
+            </label>
+         </div> 
+         @endforeach 
+      </div>
+   </div>
+  
+
+   </div>  
+</div>
+</div>
+
+
+
+
+
+
+
+
+
              </div>
             
           </div>
