@@ -16,5 +16,10 @@ class FilterController extends Controller
     }
     //End Method 
 
+    public function FilterProducts(Request $request){
+
+    }
+    //End Method 
+
 
 } 
