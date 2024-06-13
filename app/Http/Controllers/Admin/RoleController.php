@@ -207,6 +207,27 @@ class RoleController extends Controller
     }
      //End Method
 
+     public function AdminRolesUpdate(Request $request, $id){
+
+        $role = Role::find($id);
+        $permissions = $request->permission;
+
+        if (!empty($permissions)) {
+           $permissionNames = Permission::whereIn('id',$permissions)->pluck('name')->toArray();
+           $role->syncPermissions($permissionNames);
+        }else {
+            $role->$syncPermissions([]);
+        }
+
+        $notification = array(
+            'message' => 'Role Permission Updated Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.roles.permission')->with($notification);
+
+     }
+     //End Method
+ 
 
 
 }
