@@ -187,7 +187,7 @@
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{ route('all.admin') }}" data-key="t-lightbox">All Admin</a></li>
-                <li><a href="{{ route('all.roles') }}" data-key="t-range-slider">Add Admin</a></li>
+                <li><a href="{{ route('add.admin') }}" data-key="t-range-slider">Add Admin</a></li>
                
                 
             </ul>

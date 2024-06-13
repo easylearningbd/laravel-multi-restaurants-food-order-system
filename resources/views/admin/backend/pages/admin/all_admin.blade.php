@@ -12,7 +12,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <a href="{{ route('add.category') }}" class="btn btn-primary waves-effect waves-light">Add Admin</a>
+                            <a href="{{ route('add.admin') }}" class="btn btn-primary waves-effect waves-light">Add Admin</a>
                         </ol>
                     </div>
 
@@ -49,7 +49,11 @@
                 <td>{{ $item->name }}</td> 
                 <td>{{ $item->email }}</td> 
                 <td>{{ $item->phone }}</td> 
-                <td>role</td> 
+                <td>
+                @foreach ($item->roles as $role)
+                    <span class="badge badge-pill bg-danger">{{ $role->name }}</span>
+                @endforeach    
+                </td> 
                 <td><a href="{{ route('edit.category',$item->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
                 <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
                 </td> 

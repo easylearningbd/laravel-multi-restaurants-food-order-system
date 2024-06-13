@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\PermissionImport;
 use App\Models\Admin;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class RoleController extends Controller
 { 
@@ -249,6 +250,40 @@ class RoleController extends Controller
     public function AllAdmin(){
         $alladmin = Admin::latest()->get();
         return view('admin.backend.pages.admin.all_admin',compact('alladmin'));
+    }
+     //End Method
+
+    public function AddAdmin(){
+        $roles = Role::all();
+        return view('admin.backend.pages.admin.add_admin',compact('roles'));
+    }
+     //End Method
+
+    public function AdminStore(Request $request){
+
+        $user = new Admin();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->password = Hash::make($request->password); 
+        $user->role = 'admin';
+        $user->status = '1';
+        $user->save();
+
+        if ($request->roles) {
+           $role = Role::where('id',$request->roles)->where('guard_name','admin')->first();
+           if ($role) {
+            $user->assignRole($role->name);
+           }
+        }
+
+        $notification = array(
+            'message' => 'New Admin Inserted Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.admin')->with($notification); 
+
     }
      //End Method
 
