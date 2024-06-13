@@ -32,7 +32,7 @@
     @csrf
     
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div>
             
             <div class="form-group mb-3">
@@ -64,7 +64,19 @@
         </div>
 
         <div class="col-9">
+    @php
+        $permissions = App\Models\Admin::getpermissionByGroupName($group->group_name);
+    @endphp
 
+        @foreach ($permissions as $permission)
+        <div class="form-check mb-3">
+            <input class="form-check-input" name="permission[]" value="{{ $permission->id }}" type="checkbox" id="flexCheckDefault{{ $permission->id }}">
+            <label class="form-check-label" for="flexCheckDefault{{ $permission->id }}">
+              {{ $permission->name }}
+            </label>
+        </div>   
+        @endforeach   
+        <br>
         </div> 
 
        </div> 
