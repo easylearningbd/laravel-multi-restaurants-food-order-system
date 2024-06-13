@@ -188,6 +188,11 @@ Route::middleware('admin')->group(function () {
         Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles'); 
         
     });
+
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+       
+    });
  
     
 }); // End Admin Middleware
