@@ -173,7 +173,7 @@
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{ route('all.permission') }}" data-key="t-lightbox">All Permission</a></li>
-                <li><a href="{{ route('admin.approve.review') }}" data-key="t-range-slider">Approve Review</a></li>
+                <li><a href="{{ route('all.roles') }}" data-key="t-range-slider">All Roles</a></li>
                 
             </ul>
         </li>
