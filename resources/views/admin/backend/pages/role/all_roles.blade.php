@@ -46,8 +46,8 @@
                 <td>{{ $item->name }}</td> 
                 <td>{{ $item->guard_name }}</td>
 
-                <td><a href="{{ route('edit.permission',$item->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
-                <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
+                <td><a href="{{ route('edit.roles',$item->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                <a href="{{ route('delete.roles',$item->id) }}" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a>
                 </td> 
             </tr>
             @endforeach    
