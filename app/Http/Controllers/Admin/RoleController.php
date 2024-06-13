@@ -244,6 +244,14 @@ class RoleController extends Controller
      }
         //End Method
 
+        ///////// Admin User All Method ////////
+
+    public function AllAdmin(){
+        $alladmin = Admin::latest()->get();
+        return view('admin.backend.pages.admin.all_admin',compact('alladmin'));
+    }
+     //End Method
+
 
 
 }
