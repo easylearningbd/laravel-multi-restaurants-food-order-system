@@ -9,32 +9,37 @@
         <li class="menu-title" data-key="t-menu">Menu</li>
 
         <li>
-            <a href="index.html">
+            <a href="{{ route('admin.dashboard') }}">
                 <i data-feather="home"></i>
                 <span data-key="t-dashboard">Dashboard</span>
             </a>
         </li>
 
+
+        @if (Auth::guard('admin')->user()->can('category.menu')) 
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="grid"></i>
                 <span data-key="t-apps">Category</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
+                @if (Auth::guard('admin')->user()->can('category.all')) 
                 <li>
                     <a href="{{ route('all.category') }}">
                         <span data-key="t-calendar">All Category</span>
                     </a>
                 </li>
-
+                @endif
+                @if (Auth::guard('admin')->user()->can('category.add')) 
                 <li>
                     <a href="{{ route('add.category') }}">
                         <span data-key="t-chat">Add Category</span>
                     </a>
                 </li> 
-               
+                @endif
             </ul>
         </li>
+        @endif
 
         <li>
             <a href="javascript: void(0);" class="has-arrow">
