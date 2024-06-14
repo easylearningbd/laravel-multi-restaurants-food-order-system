@@ -8,13 +8,18 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session; 
 use App\Models\Coupon;
+use App\Models\Admin;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Carbon\Carbon;
+use App\Notifications\OrderComplete;
+use Illuminate\Support\Facades\Notification; 
 
 class OrderController extends Controller
 { 
     public function CashOrder(Request $request){
+
+        $user = Admin::where('role','admin')->get();
 
         $validateData = $request->validate([
             'name' => 'required',
@@ -77,6 +82,9 @@ class OrderController extends Controller
         if (Session::has('cart')) {
             Session::forget('cart');
          }
+
+        // Send Notification to admin
+         Notification::send($user, new OrderComplete($user->name));
 
          $notification = array(
             'message' => 'Order Placed Successfully',
