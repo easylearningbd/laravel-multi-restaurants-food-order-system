@@ -84,7 +84,7 @@ class OrderController extends Controller
          }
 
         // Send Notification to admin
-         Notification::send($user, new OrderComplete($user->name));
+         Notification::send($user, new OrderComplete($request->name));
 
          $notification = array(
             'message' => 'Order Placed Successfully',
@@ -186,6 +186,16 @@ class OrderController extends Controller
     }
     //End Method 
 
+    public function MarkAsRead(Request $request, $notificationId){
+        $user = Auth::guard('admin')->user();
+        $notification = $user->notifications()->where('id',$notificationId)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
+    }
+ //End Method 
 
 
 }
