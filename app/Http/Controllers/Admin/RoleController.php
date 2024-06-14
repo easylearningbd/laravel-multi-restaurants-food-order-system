@@ -322,6 +322,22 @@ class RoleController extends Controller
     }
      //End Method
 
+    public function DeleteAdmin($id){
+
+        $admin = Admin::find($id);
+        if (!is_null($admin )) {
+            $admin->delete();
+        }
+
+        $notification = array(
+            'message' => 'Admin Deleted Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->back()->with($notification); 
+
+    }
+    //End Method
+
 
 
 }

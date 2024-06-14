@@ -207,6 +207,7 @@ Route::middleware('admin')->group(function () {
         Route::post('/admin/store', 'AdminStore')->name('admin.store');
         Route::get('/edit/admin/{id}', 'Editadmin')->name('edit.admin');
         Route::post('/admin/update/{id}', 'AdminUpdate')->name('admin.update');
+        Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin');
     });
  
     
