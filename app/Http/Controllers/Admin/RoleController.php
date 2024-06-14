@@ -287,6 +287,41 @@ class RoleController extends Controller
     }
      //End Method
 
+     public function Editadmin($id){
+        $admin = Admin::find($id);
+        $roles = Role::all();
+        return view('admin.backend.pages.admin.edit_admin',compact('roles','admin'));
+    }
+     //End Method
+
+     public function AdminUpdate(Request $request , $id){
+
+        $user = Admin::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address; 
+        $user->role = 'admin';
+        $user->status = '1';
+        $user->save();
+
+        $user->roles()->detach();
+        if ($request->roles) {
+           $role = Role::where('id',$request->roles)->where('guard_name','admin')->first();
+           if ($role) {
+            $user->assignRole($role->name);
+           }
+        }
+
+        $notification = array(
+            'message' => 'New Admin Updated Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.admin')->with($notification); 
+
+    }
+     //End Method
+
 
 
 }

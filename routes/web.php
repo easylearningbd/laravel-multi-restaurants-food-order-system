@@ -205,6 +205,8 @@ Route::middleware('admin')->group(function () {
         Route::get('/all/admin', 'AllAdmin')->name('all.admin'); 
         Route::get('/add/admin', 'AddAdmin')->name('add.admin');
         Route::post('/admin/store', 'AdminStore')->name('admin.store');
+        Route::get('/edit/admin/{id}', 'Editadmin')->name('edit.admin');
+        Route::post('/admin/update/{id}', 'AdminUpdate')->name('admin.update');
     });
  
     
